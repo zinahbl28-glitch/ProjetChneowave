@@ -68,7 +68,9 @@ class PhiGridLayout(QGridLayout):
         self.addWidget(widget, row, col)
         
         # Configure la politique de taille pour respecter φ
-        widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        widget_policy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+        widget.setSizePolicy(widget_policy)
         
         # Définit les ratios de colonnes/lignes
         self.setColumnStretch(col, int(width_ratio * 100))
@@ -146,7 +148,9 @@ class PhiWidget(QWidget):
     def _setup_phi_properties(self):
         """Configure les propriétés φ du widget"""
         if self.maintain_ratio:
-            self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+            self_policy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+            self.setSizePolicy(self_policy)
     
     def resizeEvent(self, event: QResizeEvent):
         """Maintient les proportions φ lors du redimensionnement"""
@@ -204,7 +208,9 @@ class DashboardPhiLayout(PhiGridLayout):
         self.addWidget(card_widget, row, col, row_span, col_span)
         
         # Configure les proportions φ pour la carte
-        card_widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        card_widget_policy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+        card_widget.setSizePolicy(card_widget_policy)
         
         # Définit les ratios basés sur φ
         phi_ratio = int(PhiConstants.PHI * 100)

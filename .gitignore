@@ -1,167 +1,98 @@
-# Environnements virtuels
-venv*/
-env*/
-.venv/
-.env/
+# ---- General ----
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+*.orig
+*.bak
+*.backup
+*.lock
 
-# Cache Python
+# IDE / Editor
+.vscode/
+.idea/
+*.code-workspace
+
+# OS
+.Spotlight-V100
+.Trashes
+
+# ---- Python ----
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
+*.pyo
 
-# Distribution / packaging
-.Python
+# Virtual envs
+.venv/
+venv/
+env/
+
+# Packaging
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
 .eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
 *.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+.eggs-info/
 
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
+# Testing / Coverage
+.coverage
 htmlcov/
 .tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
 .pytest_cache/
-cover/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-Pipfile.lock
-
-# poetry
-poetry.lock
-
-# pdm
-.pdm.toml
-
-# PEP 582
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
 .mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
 .pyre/
 
-# pytype static type analyzer
-.pytype/
+# Notebooks
+.ipynb_checkpoints/
 
-# Cython debug symbols
-cython_debug/
-
-# PyCharm
-.idea/
-
-# VS Code
-.vscode/
-
-# Données d'acquisition
-*.dat
-*.csv
-*.h5
+# Data / Artifacts
+validation_reports/
 *.hdf5
+*.h5
+*.npz
+*.npy
+*.mat
+
+# Local config / secrets
+.env
+.env.*
+*.secret
+*.key
 
 # Logs
 *.log
-*.out
+**/chneowave_debug.log
+src/chneowave_debug.log
+src/hrneowave/chneowave_debug.log
 
-# Fichiers temporaires
-*.tmp
-*.temp
+# Backups
+**/*.backup*
 
-# Archives
-*.zip
-*.tar.gz
-*.rar
+# ---- Node / Frontend ----
+node_modules/
+.pnpm-store/
+yarn-error.log
+npm-debug.log
+pnpm-debug.log
 
-# Fichiers système
-.DS_Store
-Thumbs.db
+# Vite / React
+**/dist/
+**/.vite/
 
-# Fichiers de configuration locaux
-config_local.py
-settings_local.py
+# Tailwind / PostCSS cache
+.postcssrc.cjs
 
-# Dossiers de sortie
-output/
-results/
-reports/temp/
+# Build outputs
+coverage/
 
-# Fichiers de calibration sensibles
-*.calib
-*.cal
+# ---- Project-specific (adjust as needed) ----
+EYE/
+"Measurement Computing"/
+mindsdb/
+servers/**/node_modules/
 
-# Fichiers HTML temporaires
-file*.html
-guide*.html
-pdf*.html
-presentation.html
-formation.html
-# Dossier de développement
-__fixes__/
+# Windsurf tooling cache
+.windsurf/

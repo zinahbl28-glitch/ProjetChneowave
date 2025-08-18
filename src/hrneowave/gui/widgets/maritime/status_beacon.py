@@ -15,13 +15,19 @@ import sys
 from typing import Optional
 
 try:
-    from PyQt6.QtWidgets import QWidget, QHBoxLayout, QLabel, QFrame
-    from PyQt6.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QTimer, QRect
-    from PyQt6.QtGui import QPainter, QColor, QPen, QBrush, QFont
+    from PySide6.QtWidgets import QWidget, QHBoxLayout, QLabel, QFrame, QSizePolicy
+    from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, Signal, QTimer, QRect, Property
+    from PySide6.QtGui import QPainter, QColor, QPen, QBrush, QFont
+    pyqtSignal = Signal
 except ImportError:
-    from PyQt5.QtWidgets import QWidget, QHBoxLayout, QLabel, QFrame
-    from PyQt5.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QTimer, QRect
-    from PyQt5.QtGui import QPainter, QColor, QPen, QBrush, QFont
+    try:
+        from PyQt6.QtWidgets import QWidget, QHBoxLayout, QLabel, QFrame, QSizePolicy
+        from PyQt6.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QTimer, QRect
+        from PyQt6.QtGui import QPainter, QColor, QPen, QBrush, QFont
+    except ImportError:
+        from PyQt5.QtWidgets import QWidget, QHBoxLayout, QLabel, QFrame, QSizePolicy
+        from PyQt5.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QTimer, QRect
+        from PyQt5.QtGui import QPainter, QColor, QPen, QBrush, QFont
 
 
 class StatusBeacon(QWidget):
@@ -115,10 +121,12 @@ class StatusBeacon(QWidget):
         
         # Zone du beacon (sera dessinée dans paintEvent)
         self.beacon_size = self._get_beacon_size()
-        self.setFixedSize(
-            self.beacon_size + (100 if self.label_text else 0),
-            self.beacon_size + 4  # Marge pour l'animation
-        )
+        min_width = self.beacon_size + (100 if self.label_text else 0)
+        min_height = self.beacon_size + 4  # Marge pour l'animation
+        self.setMinimumSize(min_width, min_height)
+        self_policy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+
+        self.setSizePolicy(self_policy)
         
         # Label optionnel
         if self.label_text:
@@ -128,10 +136,12 @@ class StatusBeacon(QWidget):
             
             # Ajustement de la taille avec label
             label_width = self.label_widget.fontMetrics().horizontalAdvance(self.label_text)
-            self.setFixedSize(
-                self.beacon_size + label_width + self.FIBONACCI_SPACES[0] + 10,
-                max(self.beacon_size + 4, self.label_widget.sizeHint().height())
-            )
+            min_width = self.beacon_size + label_width + self.FIBONACCI_SPACES[0] + 10
+            min_height = max(self.beacon_size + 4, self.label_widget.sizeHint().height())
+            self.setMinimumSize(min_width, min_height)
+            self_policy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+
+            self.setSizePolicy(self_policy)
     
     def _setup_animations(self):
         """Configure les animations du beacon."""
@@ -180,8 +190,8 @@ class StatusBeacon(QWidget):
             font-size: 12px;
             font-weight: 500;
             color: {self.MARITIME_COLORS['storm_gray']};
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            /* text-transform not supported in Qt */
+
         }}
         """
         
@@ -325,7 +335,7 @@ class StatusBeacon(QWidget):
         self._pulse_opacity = opacity
         self.update()
     
-    pulse_opacity = property(get_pulse_opacity, set_pulse_opacity)
+    pulse_opacity = Property(float, get_pulse_opacity, set_pulse_opacity)
     
     def sizeHint(self):
         """Taille suggérée du beacon."""

@@ -37,7 +37,10 @@ class AnalysisToolsPanel(QFrame):
     def setup_ui(self):
         """Configure l'interface du panneau d'outils"""
         self.setObjectName("analysis_tools_panel")
-        self.setFixedWidth(int(280 * GOLDEN_RATIO))  # ~453px
+        # Politique de taille dynamique avec largeur préférée
+        self.setMinimumWidth(300)
+        self.setMaximumWidth(500)
+        self.setSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
         
         # Layout principal
         main_layout = QVBoxLayout(self)
@@ -82,7 +85,9 @@ class AnalysisToolsPanel(QFrame):
         """Configure l'en-tête du panneau"""
         header_frame = QFrame()
         header_frame.setObjectName("tools_panel_header")
-        header_frame.setFixedHeight(89)  # Fibonacci
+        # Hauteur dynamique basée sur le contenu
+        header_frame.setMinimumHeight(80)
+        header_frame.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         
         header_layout = QVBoxLayout(header_frame)
         header_layout.setContentsMargins(FIBONACCI_SPACING[2], FIBONACCI_SPACING[2], 
@@ -148,11 +153,14 @@ class AnalysisToolsPanel(QFrame):
         
         load_button = QPushButton("📁 Charger")
         load_button.setFont(QFont("Inter", 10, QFont.Weight.Medium))
-        load_button.setFixedHeight(FIBONACCI_SPACING[3])  # 34px
+        # Hauteur dynamique pour les boutons
+        load_button.setMinimumHeight(FIBONACCI_SPACING[3])
+        load_button.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         
         refresh_button = QPushButton("🔄 Actualiser")
         refresh_button.setFont(QFont("Inter", 10, QFont.Weight.Medium))
-        refresh_button.setFixedHeight(FIBONACCI_SPACING[3])  # 34px
+        refresh_button.setMinimumHeight(FIBONACCI_SPACING[3])
+        refresh_button.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         
         file_buttons_layout.addWidget(load_button)
         file_buttons_layout.addWidget(refresh_button)
@@ -224,7 +232,9 @@ class AnalysisToolsPanel(QFrame):
         
         filter_label = QLabel("Type:")
         filter_label.setFont(QFont("Inter", 12))
-        filter_label.setFixedWidth(50)
+        # Largeur minimale pour les labels
+        filter_label.setMinimumWidth(50)
+        filter_label.setSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
         
         self.filter_combo = QComboBox()
         self.filter_combo.addItems([
@@ -242,7 +252,8 @@ class AnalysisToolsPanel(QFrame):
         
         freq_label = QLabel("Freq:")
         freq_label.setFont(QFont("Inter", 12))
-        freq_label.setFixedWidth(50)
+        freq_label.setMinimumWidth(50)
+        freq_label.setSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
         
         self.freq_spinbox = QDoubleSpinBox()
         self.freq_spinbox.setRange(0.1, 1000.0)
@@ -259,7 +270,8 @@ class AnalysisToolsPanel(QFrame):
         
         order_label = QLabel("Ordre:")
         order_label.setFont(QFont("Inter", 12))
-        order_label.setFixedWidth(50)
+        order_label.setMinimumWidth(50)
+        order_label.setSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
         
         self.order_spinbox = QSpinBox()
         self.order_spinbox.setRange(1, 10)
@@ -272,7 +284,8 @@ class AnalysisToolsPanel(QFrame):
         # Bouton d'application
         self.apply_filter_button = QPushButton("🔧 Appliquer le Filtre")
         self.apply_filter_button.setFont(QFont("Inter", 12, QFont.Weight.Medium))
-        self.apply_filter_button.setFixedHeight(FIBONACCI_SPACING[3])  # 34px
+        self.apply_filter_button.setMinimumHeight(FIBONACCI_SPACING[3])
+        self.apply_filter_button.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         self.apply_filter_button.clicked.connect(self.apply_filter)
         
         # Style du bouton
@@ -323,7 +336,8 @@ class AnalysisToolsPanel(QFrame):
         for button_text, analysis_type in analysis_buttons:
             button = QPushButton(button_text)
             button.setFont(QFont("Inter", 11, QFont.Weight.Medium))
-            button.setFixedHeight(FIBONACCI_SPACING[3])  # 34px
+            button.setMinimumHeight(FIBONACCI_SPACING[3])
+            button.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
             button.clicked.connect(lambda checked, t=analysis_type: self.request_analysis(t))
             
             # Style du bouton
@@ -369,7 +383,8 @@ class AnalysisToolsPanel(QFrame):
         for button_text, export_type in export_buttons:
             button = QPushButton(button_text)
             button.setFont(QFont("Inter", 11, QFont.Weight.Medium))
-            button.setFixedHeight(FIBONACCI_SPACING[3])  # 34px
+            button.setMinimumHeight(FIBONACCI_SPACING[3])
+            button.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
             button.clicked.connect(lambda checked, t=export_type: self.request_export(t))
             
             # Style du bouton
@@ -457,7 +472,8 @@ class AnalysisResultsArea(QFrame):
     def setup_header(self, parent_layout):
         """Configure l'en-tête des résultats"""
         header_frame = QFrame()
-        header_frame.setFixedHeight(55)  # Fibonacci
+        header_frame.setMinimumHeight(55)
+        header_frame.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         
         header_layout = QHBoxLayout(header_frame)
         header_layout.setContentsMargins(0, FIBONACCI_SPACING[1], 0, FIBONACCI_SPACING[1])
@@ -588,7 +604,8 @@ class AnalysisResultsArea(QFrame):
         
         # Contrôles du graphique
         controls_frame = QFrame()
-        controls_frame.setFixedHeight(55)  # Fibonacci
+        controls_frame.setMinimumHeight(55)
+        controls_frame.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         controls_layout = QHBoxLayout(controls_frame)
         controls_layout.setSpacing(FIBONACCI_SPACING[2])
         
@@ -611,11 +628,13 @@ class AnalysisResultsArea(QFrame):
         # Boutons d'action
         zoom_button = QPushButton("🔍 Zoom")
         zoom_button.setFont(QFont("Inter", 11, QFont.Weight.Medium))
-        zoom_button.setFixedHeight(FIBONACCI_SPACING[3])  # 34px
+        zoom_button.setMinimumHeight(FIBONACCI_SPACING[3])
+        zoom_button.setSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
         
         reset_button = QPushButton("🔄 Reset")
         reset_button.setFont(QFont("Inter", 11, QFont.Weight.Medium))
-        reset_button.setFixedHeight(FIBONACCI_SPACING[3])  # 34px
+        reset_button.setMinimumHeight(FIBONACCI_SPACING[3])
+        reset_button.setSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
         
         # Style des boutons
         button_style = """
@@ -737,7 +756,8 @@ class AnalysisResultsArea(QFrame):
         
         # Contrôles spectraux
         controls_frame = QFrame()
-        controls_frame.setFixedHeight(55)  # Fibonacci
+        controls_frame.setMinimumHeight(55)
+        controls_frame.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         controls_layout = QHBoxLayout(controls_frame)
         controls_layout.setSpacing(FIBONACCI_SPACING[2])
         
@@ -760,7 +780,8 @@ class AnalysisResultsArea(QFrame):
         # Bouton de calcul
         compute_button = QPushButton("🔬 Calculer")
         compute_button.setFont(QFont("Inter", 12, QFont.Weight.Medium))
-        compute_button.setFixedHeight(FIBONACCI_SPACING[3])  # 34px
+        compute_button.setMinimumHeight(FIBONACCI_SPACING[3])
+        compute_button.setSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
         compute_button.setStyleSheet("""
             QPushButton {
                 background-color: #00ACC1;
@@ -820,7 +841,8 @@ class AnalysisResultsArea(QFrame):
         
         # En-tête du rapport
         report_header = QFrame()
-        report_header.setFixedHeight(89)  # Fibonacci
+        report_header.setMinimumHeight(89)
+        report_header.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         report_header_layout = QVBoxLayout(report_header)
         report_header_layout.setSpacing(FIBONACCI_SPACING[0])
         
@@ -899,11 +921,13 @@ Analyse complète des données d'acquisition maritime effectuée le 2025-01-XX.
         
         generate_button = QPushButton("🔄 Régénérer")
         generate_button.setFont(QFont("Inter", 12, QFont.Weight.Medium))
-        generate_button.setFixedHeight(FIBONACCI_SPACING[3])  # 34px
+        generate_button.setMinimumHeight(FIBONACCI_SPACING[3])
+        generate_button.setSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
         
         export_pdf_button = QPushButton("📄 Export PDF")
         export_pdf_button.setFont(QFont("Inter", 12, QFont.Weight.Medium))
-        export_pdf_button.setFixedHeight(FIBONACCI_SPACING[3])  # 34px
+        export_pdf_button.setMinimumHeight(FIBONACCI_SPACING[3])
+        export_pdf_button.setSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
         
         # Style des boutons
         button_style = """

@@ -19,6 +19,15 @@ from .components.help_system import HelpPanel, get_help_system, install_help_on_
 from .components.status_indicators import SystemStatusWidget, StatusLevel
 from .components.notification_system import get_notification_center, show_success, show_error, show_info
 
+# Import du système d'animations Phase 6
+try:
+    from .animations import PageTransitionManager, TransitionType, MaritimeAnimator
+except ImportError:
+    PageTransitionManager = None
+    TransitionType = None
+    MaritimeAnimator = None
+    logger.warning("Système d'animations Phase 6 non disponible")
+
 # Import des vues v2 et configurations
 from .views import (
     DashboardViewMaritime,
@@ -43,6 +52,7 @@ class MainWindow(QMainWindow):
         from PySide6.QtCore import Qt
         
         super().__init__(parent)
+        print("🔍 DEBUG: __init__ MainWindow - Début")
         self.setWindowTitle("CHNeoWave")
         self.setMinimumSize(1024, 768)
         
@@ -61,9 +71,18 @@ class MainWindow(QMainWindow):
         self.analysis_controller = None
         self.project_controller = None
         
+        # Système d'animations Phase 6
+        self.transition_manager = None
+        self.maritime_animator = None
+        if PageTransitionManager and MaritimeAnimator:
+            self.maritime_animator = MaritimeAnimator()
+            logger.info("Système d'animations Phase 6 initialisé")
+        
         # Construction de l'interface
         logger.info("Début de la construction de l'interface...")
+        print("🔍 DEBUG: __init__ MainWindow - Avant _build_ui")
         self._build_ui()
+        print("🔍 DEBUG: __init__ MainWindow - Après _build_ui")
         logger.info("Interface construite avec succès")
         
         logger.info("Configuration des connexions...")
@@ -83,12 +102,33 @@ class MainWindow(QMainWindow):
 
         # Connecter la barre de navigation
         self.sidebar.navigation_requested.connect(self._on_navigation_requested)
+        
+        # FORCER L'AFFICHAGE (CRITIQUE)
+        self.show()
+        self.raise_()
+        self.activateWindow()
+        
+        # DEBUG : Confirmer création
+        logger.info("✅ MainWindow créée et affichée")
+        logger.info(f"✅ Géométrie : {self.geometry()}")
+        logger.info(f"✅ Visible : {self.isVisible()}")
     
     @Slot(str)
     def _on_navigation_requested(self, view_name):
         """Change la vue affichée en réponse à la barre de navigation latérale."""
         if view_name in VIEWS_CONFIG:
-            self.view_manager.switch_to_view(view_name)
+            # Utiliser les transitions animées si disponibles
+            if self.transition_manager:
+                current_view = self.view_manager.get_current_view_name()
+                transition_type = self.transition_manager.get_contextual_transition(
+                    current_view, view_name
+                )
+                self.transition_manager.transition_to_view(
+                    view_name, transition_type
+                )
+            else:
+                self.view_manager.switch_to_view(view_name)
+            
             logger.info(f"Navigation vers la vue: '{view_name}'")
             self._update_breadcrumbs_for_view(view_name)
         else:
@@ -142,32 +182,50 @@ class MainWindow(QMainWindow):
 
         # Initialiser le gestionnaire de vues
         self.view_manager = ViewManager(self.stack_widget)
+        
+        # Initialiser le gestionnaire de transitions Phase 6
+        if PageTransitionManager:
+            self.transition_manager = PageTransitionManager(self.stack_widget)
+            logger.info("Gestionnaire de transitions de pages initialisé")
+        
+        print("🔍 DEBUG: __init__ MainWindow - Avant _create_and_register_views")
         self._create_and_register_views()
+        print("🔍 DEBUG: __init__ MainWindow - Après _create_and_register_views")
+        print("🔍 DEBUG: __init__ MainWindow - Terminé avec succès")
     
     def _create_and_register_views(self):
+        print("🔍 DEBUG: _create_and_register_views - Début")
+        print("🔍 DEBUG: _create_and_register_views - Étape 1: Import des vues")
         """Crée et enregistre les vues v2 auprès du ViewManager"""
         logger.info("Création et enregistrement des vues v2")
 
         # Vue d'accueil
+        print("🔍 DEBUG: _create_and_register_views - Étape 2: Création WelcomeView")
         welcome_view = WelcomeView(parent=None)
         self.view_manager.register_view('welcome', welcome_view)
+        print("🔍 DEBUG: _create_and_register_views - WelcomeView enregistrée")
         welcome_view.projectCreationRequested.connect(self._handle_project_creation)
 
         # Dashboard maritime
+        print("🔍 DEBUG: _create_and_register_views - Étape 3: Création DashboardViewMaritime")
         dashboard_view = DashboardViewMaritime(parent=None)
         self.view_manager.register_view('dashboard', dashboard_view)
+        print("🔍 DEBUG: _create_and_register_views - DashboardViewMaritime enregistrée")
 
         # Vues avec lazy loading
-        for view_name, config in VIEWS_CONFIG.items():
-            if 'loader' in config:
-                view_instance = config['loader'](parent=None)
-                self.view_manager.register_view(view_name, view_instance)
-                logger.info(f"[VIEW REGISTRATION] '{view_name}' view registered with object ID: {id(view_instance)}")
+        print("🔍 DEBUG: _create_and_register_views - Étape 4: Vues avec lazy loading")
+#         for view_name, config in VIEWS_CONFIG.items():
+#             if 'loader' in config:
+#                 view_instance = config['loader'](parent=None)
+#                 self.view_manager.register_view(view_name, view_instance)
+#                 logger.info(f"[VIEW REGISTRATION] '{view_name}' view registered with object ID: {id(view_instance)}")
 
         # Navigation initiale
+        print("🔍 DEBUG: _create_and_register_views - Étape 5: Navigation initiale")
         self.view_manager.switch_to_view('welcome')
         self._update_breadcrumbs_for_view('welcome')
 
+        print("🔍 DEBUG: _create_and_register_views - Terminé avec succès")
     def _update_breadcrumbs_for_view(self, view_name):
         """Met à jour les breadcrumbs en fonction de la vue actuelle"""
         # Mapping des noms de vues vers les WorkflowStep
@@ -230,3 +288,32 @@ class MainWindow(QMainWindow):
             show_info("Attention: Le système nécessite votre attention")
         elif status_level == StatusLevel.OK:
             show_success("Le système fonctionne normalement")
+    def show_and_exec(self):
+        """Afficher la fenêtre et lancer la boucle d'événements"""
+        from PySide6.QtWidgets import QApplication
+        
+        self.show()
+        self.raise_()
+        self.activateWindow()
+        
+        # Vérifier la visibilité
+        visible = self.isVisible()
+        print(f"✅ MainWindow visible: {visible}")
+        
+        if not visible:
+            print("⚠️ Fenêtre non visible, tentative de correction...")
+            self.showNormal()
+            self.show()
+            visible = self.isVisible()
+            print(f"✅ MainWindow visible après correction: {visible}")
+        
+        print("✅ Interface affichée avec succès")
+        print("🎉 CHNeoWave est maintenant opérationnel !")
+        print("🔍 Vérifiez que la fenêtre est visible sur votre écran")
+        
+        # Lancer la boucle d'événements
+        app = QApplication.instance()
+        if app:
+            print("🔄 Lancement de la boucle d'événements...")
+            return app.exec()
+        return 0

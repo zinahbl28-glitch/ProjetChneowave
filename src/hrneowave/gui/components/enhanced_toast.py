@@ -222,7 +222,7 @@ class EnhancedToast(QWidget):
             font-size: 14px;
             font-weight: normal;
             margin: 0px;
-            line-height: 1.4;
+            
         }}
         """
         

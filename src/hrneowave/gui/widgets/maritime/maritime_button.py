@@ -15,13 +15,30 @@ import sys
 from typing import Optional
 
 try:
-    from PyQt6.QtWidgets import QPushButton, QHBoxLayout, QLabel, QWidget
-    from PyQt6.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QSize
-    from PyQt6.QtGui import QIcon, QFont, QPainter, QColor, QPen, QBrush
+    from PySide6.QtWidgets import QPushButton, QHBoxLayout, QLabel, QWidget, QSizePolicy
+    from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, Signal, QSize, QTimer
+    from PySide6.QtGui import QIcon, QFont, QPainter, QColor, QPen, QBrush
+    pyqtSignal = Signal
 except ImportError:
-    from PyQt5.QtWidgets import QPushButton, QHBoxLayout, QLabel, QWidget
-    from PyQt5.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QSize
-    from PyQt5.QtGui import QIcon, QFont, QPainter, QColor, QPen, QBrush
+    try:
+        from PyQt6.QtWidgets import QPushButton, QHBoxLayout, QLabel, QWidget, QSizePolicy
+        from PyQt6.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QSize, QTimer
+        from PyQt6.QtGui import QIcon, QFont, QPainter, QColor, QPen, QBrush
+    except ImportError:
+        from PyQt5.QtWidgets import QPushButton, QHBoxLayout, QLabel, QWidget, QSizePolicy
+        from PyQt5.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QSize, QTimer
+        from PyQt5.QtGui import QIcon, QFont, QPainter, QColor, QPen, QBrush
+
+# Import du système d'animations Phase 6
+try:
+    from ...animations.micro_interactions import MaritimeMicroInteractions, InteractionState
+    from ...animations.animation_system import MaritimeAnimator, AnimationType
+except ImportError:
+    # Fallback si le système d'animations n'est pas disponible
+    MaritimeMicroInteractions = None
+    InteractionState = None
+    MaritimeAnimator = None
+    AnimationType = None
 
 
 class MaritimeButton(QPushButton):
@@ -88,6 +105,15 @@ class MaritimeButton(QPushButton):
         # État d'animation
         self._hover_progress = 0.0
         self._press_progress = 0.0
+        self._is_loading = False
+        
+        # Système d'animations Phase 6
+        if MaritimeMicroInteractions:
+            self.micro_interactions = MaritimeMicroInteractions(self)
+            self.animator = MaritimeAnimator(self)
+        else:
+            self.micro_interactions = None
+            self.animator = None
         
         # Configuration de base
         self._setup_button()
@@ -95,6 +121,10 @@ class MaritimeButton(QPushButton):
         
         # Application du style
         self._apply_maritime_style()
+        
+        # Configuration des micro-interactions
+        if self.micro_interactions:
+            self._setup_micro_interactions()
     
     def _setup_button(self):
         """Configure le bouton de base."""
@@ -109,14 +139,16 @@ class MaritimeButton(QPushButton):
         min_width = int(height * self.GOLDEN_RATIO)
         
         if self.full_width:
-            self.setSizePolicy(
-                self.sizePolicy().Expanding,
-                self.sizePolicy().Fixed
-            )
+            self_policy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+
+            self.setSizePolicy(self_policy)
         else:
             self.setMinimumWidth(min_width)
+            self_policy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+
+            self.setSizePolicy(self_policy)
         
-        self.setFixedHeight(height)
+        self.setMinimumHeight(height)
         
         # Configuration de l'icône
         if self.icon:
@@ -142,6 +174,73 @@ class MaritimeButton(QPushButton):
         self.press_animation.setDuration(100)
         self.press_animation.setEasingCurve(QEasingCurve.Type.OutCubic)
     
+    def _setup_micro_interactions(self):
+        """Configure les micro-interactions Phase 6."""
+        if not self.micro_interactions:
+            return
+            
+        # Configuration des interactions pour boutons
+        config = {
+            'hover_scale': 1.02,
+            'press_scale': 0.98,
+            'transition_duration': 150,
+            'success_duration': 1200,
+            'error_shake_intensity': 3
+        }
+        
+        self.micro_interactions.configure_button_interactions(config)
+    
+    def enterEvent(self, event):
+        """Gestion de l'entrée de la souris."""
+        super().enterEvent(event)
+        self.hover_entered.emit()
+        
+        if self.micro_interactions:
+            self.micro_interactions.trigger_hover_enter()
+    
+    def leaveEvent(self, event):
+        """Gestion de la sortie de la souris."""
+        super().leaveEvent(event)
+        self.hover_left.emit()
+        
+        if self.micro_interactions:
+            self.micro_interactions.trigger_hover_leave()
+    
+    def mousePressEvent(self, event):
+        """Gestion du clic de souris."""
+        super().mousePressEvent(event)
+        
+        if self.micro_interactions:
+            self.micro_interactions.trigger_press()
+    
+    def mouseReleaseEvent(self, event):
+        """Gestion du relâchement de souris."""
+        super().mouseReleaseEvent(event)
+        
+        if self.micro_interactions:
+            self.micro_interactions.trigger_release()
+    
+    def set_loading(self, loading: bool = True):
+        """Active/désactive l'état de chargement."""
+        self._is_loading = loading
+        self.setEnabled(not loading)
+        
+        if self.micro_interactions:
+            if loading:
+                self.micro_interactions.trigger_loading_start()
+            else:
+                self.micro_interactions.trigger_loading_stop()
+    
+    def trigger_success_feedback(self):
+        """Déclenche un feedback de succès."""
+        if self.micro_interactions:
+            self.micro_interactions.trigger_success_feedback()
+    
+    def trigger_error_feedback(self):
+        """Déclenche un feedback d'erreur."""
+        if self.micro_interactions:
+            self.micro_interactions.trigger_error_feedback()
+    
     def _apply_maritime_style(self):
         """Applique le style maritime selon la variante."""
         # Styles de base
@@ -151,18 +250,18 @@ class MaritimeButton(QPushButton):
             border-radius: {self.FIBONACCI_SPACES[0]}px;
             font-family: 'Segoe UI', 'Roboto', sans-serif;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            /* text-transform not supported in Qt */
+
             padding: 0 {self.FIBONACCI_SPACES[2]}px;
         }}
         
         MaritimeButton:focus {{
             outline: 2px solid {self.MARITIME_COLORS['tidal_cyan']};
-            outline-offset: 2px;
+            /* outline-offset not supported in Qt */
         }}
         
         MaritimeButton:disabled {{
-            opacity: 0.5;
+
             cursor: not-allowed;
         }}
         """
@@ -178,12 +277,14 @@ class MaritimeButton(QPushButton):
             
             MaritimeButton:hover {{
                 background-color: {self.MARITIME_COLORS['steel_blue']};
-                transform: translateY(-1px);
+                /* transform non supporté par Qt - effet géré par padding */
+                padding: 11px 20px;
             }}
             
             MaritimeButton:pressed {{
                 background-color: {self.MARITIME_COLORS['ocean_deep']};
-                transform: translateY(0px);
+                /* transform non supporté par Qt - effet géré par padding */
+                padding: 13px 22px;
             }}
             """,
             
@@ -199,12 +300,14 @@ class MaritimeButton(QPushButton):
                 background-color: {self.MARITIME_COLORS['foam_white']};
                 border-color: {self.MARITIME_COLORS['harbor_blue']};
                 color: {self.MARITIME_COLORS['harbor_blue']};
-                transform: translateY(-1px);
+                /* transform non supporté par Qt - effet géré par padding */
+                padding: 11px 20px;
             }}
             
             MaritimeButton:pressed {{
                 background-color: {self.MARITIME_COLORS['frost_light']};
-                transform: translateY(0px);
+                /* transform non supporté par Qt - effet géré par padding */
+                padding: 13px 22px;
             }}
             """,
             
@@ -219,13 +322,15 @@ class MaritimeButton(QPushButton):
             MaritimeButton:hover {{
                 background-color: {self.MARITIME_COLORS['harbor_blue']};
                 color: {self.MARITIME_COLORS['foam_white']};
-                transform: translateY(-1px);
+                /* transform non supporté par Qt - effet géré par padding */
+                padding: 11px 20px;
             }}
             
             MaritimeButton:pressed {{
                 background-color: {self.MARITIME_COLORS['ocean_deep']};
                 border-color: {self.MARITIME_COLORS['ocean_deep']};
-                transform: translateY(0px);
+                /* transform non supporté par Qt - effet géré par padding */
+                padding: 13px 22px;
             }}
             """,
             
@@ -239,12 +344,14 @@ class MaritimeButton(QPushButton):
             
             MaritimeButton:hover {{
                 background-color: rgba(21, 101, 192, 0.1);
-                transform: translateY(-1px);
+                /* transform non supporté par Qt - effet géré par padding */
+                padding: 11px 20px;
             }}
             
             MaritimeButton:pressed {{
                 background-color: rgba(21, 101, 192, 0.2);
-                transform: translateY(0px);
+                /* transform non supporté par Qt - effet géré par padding */
+                padding: 13px 22px;
             }}
             """,
             
@@ -257,12 +364,14 @@ class MaritimeButton(QPushButton):
             
             MaritimeButton:hover {{
                 background-color: #E64A19;
-                transform: translateY(-1px);
+                /* transform non supporté par Qt - effet géré par padding */
+                padding: 11px 20px;
             }}
             
             MaritimeButton:pressed {{
                 background-color: #D84315;
-                transform: translateY(0px);
+                /* transform non supporté par Qt - effet géré par padding */
+                padding: 13px 22px;
             }}
             """
         }

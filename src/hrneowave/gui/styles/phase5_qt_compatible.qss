@@ -14,38 +14,34 @@
 /* Titres principaux */
 QLabel[class="h1"] {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 700;
     color: #1e293b;
-    margin-bottom: 21px;
 }
 
 QLabel[class="h2"] {
     font-size: 20px;
-    font-weight: bold;
-    color: #334155;
-    margin-bottom: 13px;
+    font-weight: 600;
+    color: #374151;
 }
 
 QLabel[class="h3"] {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
     color: #475569;
-    margin-bottom: 8px;
 }
 
 /* Texte principal */
 QLabel[class="body"] {
     font-size: 14px;
-    font-weight: normal;
-    color: #64748b;
-    margin-bottom: 13px;
+    font-weight: 400;
+    color: #1e293b;
 }
 
 /* Légendes */
 QLabel[class="caption"] {
     font-size: 12px;
-    font-weight: normal;
-    color: #94a3b8;
+    font-weight: 400;
+    color: #64748b;
 }
 
 /* =============================================================================

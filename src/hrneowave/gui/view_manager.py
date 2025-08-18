@@ -125,7 +125,7 @@ class ViewManager(QObject):
         analysisFinished = Signal(dict)
         exportFinished = Signal(str)
         
-        def __init__(self, stacked_widget: QStackedWidget):
+        def __init__(self, stacked_widget: QStackedWidget = None):
             super().__init__()
             self.logger = logging.getLogger(__name__)
             self.stacked_widget = stacked_widget

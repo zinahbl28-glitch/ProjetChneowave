@@ -127,7 +127,7 @@
 /* Test des états interactifs */
 .test-interactive:hover {
     background-color: #e0f2fe;
-    transition: all 0.2s ease;
+    /* transition not supported in Qt */
 }
 
 .test-interactive:active {

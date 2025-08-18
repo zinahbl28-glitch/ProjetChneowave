@@ -1,18 +1,18 @@
-/* Dark Theme */
-
-QWidget {
-    background-color: var(--dark-bg);
-    color: var(--dark-text-primary);
+/* Thème sombre pour CHNeoWave */
+QMainWindow {
+    background-color: #0f172a;
+    color: #f1f5f9;
 }
 
 QPushButton {
-    background-color: var(--dark-accent);
-    color: var(--on-dark-accent);
+    background-color: #1e40af;
+    color: #ffffff;
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
+    font-weight: bold;
 }
 
 QPushButton:hover {
-    background-color: var(--dark-accent-hover);
+    background-color: #1d4ed8;
 }

@@ -26,51 +26,38 @@
    ============================================================================= */
 
 /* Titres Principaux - H1 */
-h1, .h1, QLabel[class="h1"], QLabel[class="title-main"] {
+QLabel[class="h1"], QLabel[class="title-main"] {
     font-size: 34px;  /* Fibonacci F9 */
     font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 21px; /* Fibonacci F8 */
     color: #00558c; /* Harbor Blue */
-    letter-spacing: -0.02em;
 }
 
 /* Sous-titres - H2 */
-h2, .h2, QLabel[class="h2"], QLabel[class="subtitle"] {
+QLabel[class="h2"], QLabel[class="subtitle"] {
     font-size: 21px;  /* Fibonacci F8 */
     font-weight: 600;
-    line-height: 1.3;
-    margin-bottom: 13px; /* Fibonacci F7 */
     color: #0478b9; /* Steel Blue */
-    letter-spacing: -0.01em;
 }
 
 /* Texte Courant - Body */
-body, .body, QLabel, QPushButton, QLineEdit, QTextEdit {
+QLabel, QPushButton, QLineEdit, QTextEdit {
     font-size: 13px;  /* Fibonacci F7 */
     font-weight: 400;
-    line-height: 1.5;
-    margin-bottom: 8px; /* Fibonacci F6 */
     color: #0A1929; /* Deep Navy */
 }
 
 /* Annotations - Caption */
-.caption, QLabel[class="caption"], QToolTip {
+QLabel[class="caption"], QToolTip {
     font-size: 8px;   /* Fibonacci F6 */
     font-weight: 400;
-    line-height: 1.4;
-    margin-bottom: 5px; /* Fibonacci F5 */
     color: #37474F; /* Storm Gray */
-    opacity: 0.8;
 }
 
 /* Micro-texte */
-.small, QLabel[class="small"] {
+QLabel[class="small"] {
     font-size: 5px;   /* Fibonacci F5 */
     font-weight: 400;
-    line-height: 1.3;
     color: #37474F; /* Storm Gray */
-    opacity: 0.7;
 }
 
 /* =============================================================================
@@ -83,15 +70,13 @@ QMainWindow {
 }
 
 /* Sidebar - Proportion φ⁻¹ (≈ 38.2%) */
-.sidebar, QDockWidget[class="sidebar"] {
+QDockWidget[class="sidebar"] {
     min-width: 233px;    /* Fibonacci F13 */
     max-width: 377px;    /* Fibonacci F14 */
-    width: 38.2%;        /* φ⁻¹ * 100% */
 }
 
 /* Zone principale - Proportion φ (≈ 61.8%) */
-.main-content, QWidget[class="main-content"] {
-    width: 61.8%;        /* φ⁻¹ * 100% */
+QWidget[class="main-content"] {
     min-width: 377px;    /* Fibonacci F14 */
 }
 
@@ -100,7 +85,7 @@ QMainWindow {
    ============================================================================= */
 
 /* Cartes Golden Ratio */
-.card-phi, QWidget[class="card-phi"] {
+QWidget[class="card-phi"] {
     /* Ratio φ: si largeur = 233px, hauteur = 144px */
     min-width: 144px;    /* Fibonacci F12 */
     min-height: 89px;    /* Fibonacci F11 - ratio ≈ φ */
@@ -118,7 +103,7 @@ QMainWindow {
 }
 
 /* Cartes KPI - Proportions φ optimisées */
-.kpi-card, QWidget[class="kpi-card"] {
+QWidget[class="kpi-card"] {
     min-width: 89px;     /* Fibonacci F11 */
     min-height: 55px;    /* Fibonacci F10 - ratio ≈ φ */
     max-width: 233px;    /* Fibonacci F13 */
@@ -261,11 +246,12 @@ QHeaderView[class="phi-header"]::section {
    ============================================================================= */
 
 /* Durées basées sur Fibonacci (en ms) */
-.transition-xs { transition: all 89ms ease-out; }   /* F11 */
-.transition-sm { transition: all 144ms ease-out; }  /* F12 */
-.transition-md { transition: all 233ms ease-out; }  /* F13 */
-.transition-lg { transition: all 377ms ease-out; }  /* F14 */
-.transition-xl { transition: all 610ms ease-out; }  /* F15 */
+/* Transition classes not supported in Qt - use QPropertyAnimation instead */
+.transition-xs { /* 89ms duration */ }
+.transition-sm { /* 144ms duration */ }
+.transition-md { /* 233ms duration */ }
+.transition-lg { /* 377ms duration */ }
+.transition-xl { /* 610ms duration */ }
 
 /* Effet de survol φ */
 .hover-phi:hover {
@@ -301,20 +287,17 @@ QHeaderView[class="phi-header"]::section {
 
 .debug-phi {
     outline: 2px dashed #FF6B47; /* Coral Alert */
-    outline-offset: 2px;
+    /* outline-offset not supported in Qt */
 }
 
 .debug-fibonacci {
     outline: 2px dashed #00ACC1; /* Tidal Green */
-    outline-offset: 2px;
+    /* outline-offset not supported in Qt */
 }
 
 /* Affichage des ratios en overlay */
-.debug-ratio::after {
-    content: "φ = 1.618";
-    position: absolute;
-    top: 2px;
-    right: 2px;
+/* Debug ratio display not supported in Qt CSS - implement in Python code */
+.debug-ratio {
     background: rgba(255, 107, 71, 0.8);
     color: white;
     padding: 2px 5px;
@@ -329,9 +312,7 @@ QHeaderView[class="phi-header"]::section {
 /* Application des couleurs maritimes aux éléments φ */
 .card-phi {
     border-color: #E1F5FE; /* Seafoam */
-    background: linear-gradient(135deg, 
-                               rgba(255, 255, 255, 1) 0%, 
-                               rgba(225, 245, 254, 0.3) 100%);
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .card-phi:hover {
@@ -342,13 +323,13 @@ QHeaderView[class="phi-header"]::section {
 
 /* Boutons φ avec thème maritime */
 QPushButton[class="phi-button"] {
-    background: linear-gradient(135deg, #0478b9 0%, #00558c 100%);
+    background-color: #0478b9;
     color: white;
     border: none;
 }
 
 QPushButton[class="phi-button"]:hover {
-    background: linear-gradient(135deg, #00558c 0%, #003d66 100%);
+    background-color: #00558c;
 }
 
 /* =============================================================================

@@ -39,7 +39,6 @@ QPushButton {
     border: none;
     border-radius: 8px; /* Fibonacci F6 */
     padding: 13px 21px; /* Fibonacci F7 x F8 - Espacements φ */
-    margin: 8px; /* Fibonacci F6 - Micro-espacement */
     font-weight: bold;
     font-size: 13px; /* Fibonacci F7 - Body text */
     min-height: 34px; /* Fibonacci F9 - Hauteur φ */
@@ -105,7 +104,6 @@ QLineEdit, QTextEdit, QPlainTextEdit {
     border: 2px solid #E1F5FE; /* Seafoam - Bordures douces */
     border-radius: 8px; /* Fibonacci F6 */
     padding: 13px 21px; /* Fibonacci F7 x F8 - Espacements φ */
-    margin: 8px 0; /* Fibonacci F6 - Micro-espacement vertical */
     font-size: 13px; /* Fibonacci F7 - Body text */
     color: #0A1929; /* Deep Navy - Texte principal */
     selection-background-color: #d3edf9; /* Frost White pour sélection */
@@ -132,7 +130,6 @@ QComboBox {
     border: 2px solid #E1F5FE; /* Seafoam - Bordures douces */
     border-radius: 8px; /* Fibonacci F6 */
     padding: 13px 21px; /* Fibonacci F7 x F8 - Espacements φ */
-    margin: 8px 0; /* Fibonacci F6 - Micro-espacement vertical */
     font-size: 13px; /* Fibonacci F7 - Body text */
     color: #0A1929; /* Deep Navy - Texte principal */
     min-height: 34px; /* Fibonacci F9 - Hauteur φ */
@@ -225,7 +222,7 @@ QHeaderView::section {
     padding: 13px 21px; /* Fibonacci F7 x F8 - Espacements φ */
     border: none;
     border-bottom: 2px solid #E1F5FE; /* Seafoam */
-    font-weight: 600;
+    font-weight: bold;
     font-size: 13px; /* Fibonacci F7 - Body text */
     min-height: 34px; /* Fibonacci F9 - Hauteur φ */
 }
@@ -242,17 +239,15 @@ QTabWidget::pane {
     background-color: white;
     border: 1px solid #E1F5FE; /* Seafoam */
     border-radius: 8px; /* Fibonacci F6 */
-    margin-top: 8px; /* Fibonacci F6 - Micro-espacement */
 }
 
 QTabBar::tab {
     background-color: #d3edf9; /* Frost White */
     color: #37474F; /* Storm Gray */
     padding: 13px 21px; /* Fibonacci F7 x F8 - Espacements φ */
-    margin-right: 8px; /* Fibonacci F6 - Micro-espacement */
     border-top-left-radius: 8px; /* Fibonacci F6 */
     border-top-right-radius: 8px; /* Fibonacci F6 */
-    font-weight: 500;
+    font-weight: normal;
     font-size: 13px; /* Fibonacci F7 - Body text */
     min-height: 21px; /* Fibonacci F8 - Hauteur harmonieuse */
 }
@@ -277,7 +272,6 @@ QProgressBar {
     border: none;
     border-radius: 8px; /* Fibonacci F6 */
     height: 8px; /* Fibonacci F6 */
-    text-align: center;
     font-size: 8px; /* Fibonacci F6 - Caption text */
 }
 
@@ -295,7 +289,6 @@ QSlider::groove:horizontal {
     background-color: #E1F5FE; /* Seafoam */
     height: 8px; /* Fibonacci F6 - Micro-espacement */
     border-radius: 5px; /* Fibonacci F5 */
-    margin: 8px 0; /* Fibonacci F6 - Micro-espacement vertical */
 }
 
 QSlider::handle:horizontal {
@@ -304,7 +297,6 @@ QSlider::handle:horizontal {
     width: 21px; /* Fibonacci F8 - Espacement moyen */
     height: 21px; /* Fibonacci F8 - Espacement moyen */
     border-radius: 13px; /* Fibonacci F7 - Rayon φ */
-    margin: -8px 0; /* Fibonacci F6 ajusté */
 }
 
 QSlider::handle:horizontal:hover {
@@ -325,9 +317,8 @@ QGroupBox {
     background-color: white;
     border: 1px solid #E1F5FE; /* Seafoam */
     border-radius: 8px; /* Fibonacci F6 */
-    margin: 21px 0; /* Fibonacci F8 - Espacement moyen */
     padding: 21px; /* Fibonacci F8 - Espacement moyen */
-    font-weight: 600;
+    font-weight: bold;
     font-size: 13px; /* Fibonacci F7 - Body text */
     color: #37474F; /* Storm Gray */
 }
@@ -338,9 +329,8 @@ QGroupBox::title {
     padding: 0 13px; /* Fibonacci F7 - Espacement petit */
     background-color: white;
     color: #00558c; /* Harbor Blue */
-    margin-left: 8px; /* Fibonacci F6 - Micro-espacement */
     font-size: 13px; /* Fibonacci F7 - Body text */
-    font-weight: 600;
+    font-weight: bold;
 }
 
 QFrame {
@@ -381,14 +371,12 @@ QScrollBar:horizontal {
     background-color: #d3edf9; /* Frost White */
     height: 12px;
     border-radius: 6px;
-    margin: 0;
 }
 
 QScrollBar::handle:horizontal {
     background-color: #37474F; /* Storm Gray */
     border-radius: 6px;
     min-width: 20px;
-    margin: 2px;
 }
 
 QScrollBar::handle:horizontal:hover {
@@ -410,7 +398,6 @@ QMenuBar {
 QMenuBar::item {
     padding: 8px 21px; /* Fibonacci F6 x F8 - Espacement φ */
     border-radius: 5px; /* Fibonacci F5 - Rayon harmonieux */
-    margin: 8px; /* Fibonacci F6 - Micro-espacement */
 }
 
 QMenuBar::item:selected {
@@ -428,7 +415,6 @@ QMenu {
 QMenu::item {
     padding: 8px 21px; /* Fibonacci F6 x F8 - Espacement φ */
     border-radius: 5px; /* Fibonacci F5 - Rayon harmonieux */
-    margin: 3px 13px; /* Fibonacci F4 x F7 - Espacement petit */
     font-size: 13px; /* Fibonacci F7 - Body text */
 }
 
@@ -480,7 +466,7 @@ QDockWidget::title {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     border-bottom: 1px solid #E1F5FE; /* Seafoam */
-    font-weight: 600;
+    font-weight: bold;
 }
 
 /* =============================================================================
@@ -514,7 +500,6 @@ QToolTip {
     border-radius: 8px; /* Rayon moderne */
     padding: 8px 13px; /* Golden Ratio - Espacement petit */
     font-size: 12px;
-    opacity: 240;
 }
 
 /* =============================================================================

@@ -208,7 +208,9 @@ class BreadcrumbsWidget(QWidget):
         
         # Configuration du widget
         self.setFixedHeight(50)
-        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        self_policy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+
+        self.setSizePolicy(self_policy)
         
         # Layout principal
         self.layout = QHBoxLayout(self)

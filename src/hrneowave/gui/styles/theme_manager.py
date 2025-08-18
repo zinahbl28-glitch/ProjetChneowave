@@ -19,6 +19,9 @@ class ThemeManager(QObject):
         self._styles_dir = Path(__file__).parent
         self._logger = logging.getLogger(__name__)
         self._current_theme = ''
+        
+        # Ajouter l'attribut available_themes manquant
+        self.available_themes = ['light', 'dark', 'maritime_modern']
 
     def _parse_variables(self, content: str) -> dict:
         """Parse les variables CSS-like depuis une chaîne de caractères."""
@@ -107,19 +110,41 @@ class ThemeManager(QObject):
         return '\n'.join(stylesheet_parts)
 
     def apply_theme(self, theme_name: str):
-        """Applique un thème à l'application."""
-        valid_themes = ['light', 'dark', 'maritime_modern']
-        if theme_name not in valid_themes:
-            self._logger.error(f"Thème invalide: '{theme_name}'. Utilisez {valid_themes}.")
-            return
-
-        stylesheet = self._load_stylesheet(theme_name)
-        if stylesheet:
-            self.app.setStyleSheet(stylesheet)
-            if self._current_theme != theme_name:
-                self._current_theme = theme_name
-                self.theme_changed.emit(theme_name)
-                self._logger.info(f"Thème '{theme_name}' appliqué avec succès.")
+        """Applique un thème à l'application avec protection contre les erreurs."""
+        try:
+            # Vérifier si le thème est disponible
+            if theme_name not in self.available_themes:
+                self._logger.warning(f"Thème '{theme_name}' non trouvé, utilisation du thème par défaut")
+                theme_name = 'maritime_modern'
+            
+            # Charger et appliquer le thème
+            stylesheet = self._load_stylesheet(theme_name)
+            if stylesheet:
+                self.app.setStyleSheet(stylesheet)
+                if self._current_theme != theme_name:
+                    self._current_theme = theme_name
+                    self.theme_changed.emit(theme_name)
+                    self._logger.info(f"Thème '{theme_name}' appliqué avec succès.")
+                    print(f"✅ Thème '{theme_name}' appliqué avec succès")
+                else:
+                    print(f"✅ Thème '{theme_name}' déjà appliqué")
+            else:
+                self._logger.error(f"Impossible de charger le thème '{theme_name}'")
+                print(f"⚠️ Impossible de charger le thème '{theme_name}'")
+                
+        except Exception as e:
+            self._logger.error(f"Erreur lors de l'application du thème '{theme_name}': {e}")
+            print(f"⚠️ Erreur lors de l'application du thème '{theme_name}': {e}")
+            
+            # Essayer d'appliquer le thème par défaut en cas d'erreur
+            try:
+                if theme_name != 'maritime_modern':
+                    self.apply_theme('maritime_modern')
+                else:
+                    print("⚠️ Impossible d'appliquer le thème par défaut")
+            except Exception as fallback_error:
+                self._logger.error(f"Erreur lors de l'application du thème par défaut: {fallback_error}")
+                print("⚠️ Impossible d'appliquer le thème par défaut")
 
     def toggle_theme(self):
         """Bascule entre les thèmes disponibles."""

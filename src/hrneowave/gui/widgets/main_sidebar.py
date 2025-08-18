@@ -33,7 +33,11 @@ class NavigationButton(QPushButton):
     def setup_ui(self):
         """Configure l'interface du bouton"""
         self.setObjectName("nav_button")
-        self.setFixedHeight(55)  # Fibonacci
+        self.setMinimumHeight(55)  # Fibonacci minimum
+        self_policy = QSizePolicy()
+        self_policy.setHorizontalPolicy(QSizePolicy.Policy.Expanding)
+        self_policy.setVerticalPolicy(QSizePolicy.Policy.Fixed)
+        self.setSizePolicy(self_policy)
         self.setCheckable(True)
         self.setChecked(self.is_active)
         
@@ -47,7 +51,11 @@ class NavigationButton(QPushButton):
         if self.icon_text:
             self.icon_label = QLabel(self.icon_text)
             self.icon_label.setFont(QFont("Segoe UI Emoji", 16))
-            self.icon_label.setFixedWidth(FIBONACCI_SPACING[3])
+            self.icon_label.setMinimumWidth(FIBONACCI_SPACING[3])
+            icon_label_policy = QSizePolicy()
+            icon_label_policy.setHorizontalPolicy(QSizePolicy.Policy.Fixed)
+            icon_label_policy.setVerticalPolicy(QSizePolicy.Policy.Preferred)
+            self.icon_label.setSizePolicy(icon_label_policy)
             self.icon_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
             layout.addWidget(self.icon_label)
         
@@ -77,7 +85,7 @@ class NavigationButton(QPushButton):
                     border: none;
                     border-radius: 13px;
                     padding: 8px 13px;
-                    text-align: left;
+    
                 }
                 
                 QPushButton#nav_button:hover {
@@ -151,7 +159,12 @@ class MainSidebar(QFrame):
     def setup_ui(self):
         """Configure l'interface de la sidebar"""
         self.setObjectName("main_sidebar")
-        self.setFixedWidth(250)
+        self.setMinimumWidth(230)
+        self.setMaximumWidth(280)
+        self_policy = QSizePolicy()
+        self_policy.setHorizontalPolicy(QSizePolicy.Policy.Preferred)
+        self_policy.setVerticalPolicy(QSizePolicy.Policy.Expanding)
+        self.setSizePolicy(self_policy)
         self.setFrameStyle(QFrame.Shape.NoFrame)
         
         # Layout principal
@@ -180,7 +193,11 @@ class MainSidebar(QFrame):
         """Configure l'en-tête avec logo et titre"""
         header_frame = QFrame()
         header_frame.setObjectName("sidebar_header")
-        header_frame.setFixedHeight(89)  # Fibonacci
+        header_frame.setMinimumHeight(89)  # Fibonacci minimum
+        header_frame_policy = QSizePolicy()
+        header_frame_policy.setHorizontalPolicy(QSizePolicy.Policy.Expanding)
+        header_frame_policy.setVerticalPolicy(QSizePolicy.Policy.Preferred)
+        header_frame.setSizePolicy(header_frame_policy)
         
         header_layout = QVBoxLayout(header_frame)
         header_layout.setContentsMargins(FIBONACCI_SPACING[2], FIBONACCI_SPACING[2], 
@@ -270,7 +287,7 @@ class MainSidebar(QFrame):
             
         # Spacer
         self.nav_layout.addSpacerItem(
-            QSpacerItem(20, FIBONACCI_SPACING[2], QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+            QSpacerItem(20, FIBONACCI_SPACING[2], QSizePolicy.Minimum, QSizePolicy.Expanding)
         )
         
         # Séparateur - Outils

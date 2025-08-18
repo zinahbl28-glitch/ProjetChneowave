@@ -150,7 +150,7 @@ class WelcomeView(QWidget):
                 font-size: 18px;
                 font-weight: bold;
                 color: #2c5aa0;
-                margin-bottom: 10px;
+
             }
         """)
         card_layout.addWidget(title_label)
@@ -272,15 +272,26 @@ class WelcomeView(QWidget):
     
     def _setup_connections(self):
         """Configuration des connexions de signaux"""
-        # Vérifier que les widgets existent avant d'établir les connexions
-        if hasattr(self, 'project_name') and self.project_name is not None:
-            self.project_name.textChanged.connect(self._validate_form)
-        
-        if hasattr(self, 'project_manager') and self.project_manager is not None:
-            self.project_manager.textChanged.connect(self._validate_form)
-        
-        if hasattr(self, 'laboratory') and self.laboratory is not None:
-            self.laboratory.textChanged.connect(self._validate_form)
+        try:
+            # Vérifier que les widgets existent et sont valides avant d'établir les connexions
+            if (hasattr(self, 'project_name') and 
+                self.project_name is not None and 
+                self.project_name.isWidgetType()):
+                self.project_name.textChanged.connect(self._validate_form)
+            
+            if (hasattr(self, 'project_manager') and 
+                self.project_manager is not None and 
+                self.project_manager.isWidgetType()):
+                self.project_manager.textChanged.connect(self._validate_form)
+            
+            if (hasattr(self, 'laboratory') and 
+                self.laboratory is not None and 
+                self.laboratory.isWidgetType()):
+                self.laboratory.textChanged.connect(self._validate_form)
+        except RuntimeError as e:
+            # Ignorer les erreurs de widget supprimé
+            print(f"⚠️ Erreur de connexion widget (ignorée): {e}")
+            pass
         
         # Bouton de création
         if hasattr(self, 'create_button') and self.create_button is not None:
@@ -305,7 +316,7 @@ class WelcomeView(QWidget):
                     stop:1 {self.theme.colors['secondary']});
                 border-radius: 15px;
                 padding: 20px;
-                margin-bottom: 10px;
+
             }}
             
             #mainTitle {{
@@ -321,7 +332,7 @@ class WelcomeView(QWidget):
             #cardDescription {{
                 color: {self.theme.colors['on_surface']};
                 font-size: 14px;
-                margin-bottom: 10px;
+
             }}
             
             #modernInput {{

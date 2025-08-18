@@ -40,7 +40,10 @@ class AcquisitionControlPanel(QFrame):
     def setup_ui(self):
         """Configure l'interface du panneau de contrôle"""
         self.setObjectName("acquisition_control_panel")
-        self.setFixedWidth(int(300 * GOLDEN_RATIO))  # ~485px
+        # Largeur dynamique avec contraintes Golden Ratio
+        self.setMinimumWidth(int(280 * GOLDEN_RATIO))  # ~453px minimum
+        self.setMaximumWidth(int(320 * GOLDEN_RATIO))  # ~518px maximum
+        self.setSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
         
         # Layout principal
         main_layout = QVBoxLayout(self)
@@ -83,7 +86,8 @@ class AcquisitionControlPanel(QFrame):
         """Configure l'en-tête du panneau"""
         header_frame = QFrame()
         header_frame.setObjectName("control_panel_header")
-        header_frame.setFixedHeight(89)  # Fibonacci
+        header_frame.setMinimumHeight(89)  # Fibonacci minimum
+        header_frame.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
         
         header_layout = QVBoxLayout(header_frame)
         header_layout.setContentsMargins(0, FIBONACCI_SPACING[1], 0, FIBONACCI_SPACING[1])
@@ -128,20 +132,23 @@ class AcquisitionControlPanel(QFrame):
         # Bouton Start/Stop
         self.start_stop_button = QPushButton("🚀 Démarrer l'Acquisition")
         self.start_stop_button.setFont(QFont("Inter", 13, QFont.Weight.Medium))
-        self.start_stop_button.setFixedHeight(FIBONACCI_SPACING[4])  # 55px
+        self.start_stop_button.setMinimumHeight(FIBONACCI_SPACING[4])  # 55px minimum
+        self.start_stop_button.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         self.start_stop_button.clicked.connect(self.toggle_acquisition)
         
         # Bouton Pause/Resume
         self.pause_button = QPushButton("⏸️ Pause")
         self.pause_button.setFont(QFont("Inter", 12, QFont.Weight.Medium))
-        self.pause_button.setFixedHeight(FIBONACCI_SPACING[3])  # 34px
+        self.pause_button.setMinimumHeight(FIBONACCI_SPACING[3])  # 34px minimum
+        self.pause_button.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         self.pause_button.setEnabled(False)
         self.pause_button.clicked.connect(self.toggle_pause)
         
         # Bouton Reset
         self.reset_button = QPushButton("🔄 Reset")
         self.reset_button.setFont(QFont("Inter", 12, QFont.Weight.Medium))
-        self.reset_button.setFixedHeight(FIBONACCI_SPACING[3])  # 34px
+        self.reset_button.setMinimumHeight(FIBONACCI_SPACING[3])  # 34px minimum
+        self.reset_button.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         self.reset_button.clicked.connect(self.reset_acquisition)
         
         buttons_layout.addWidget(self.start_stop_button)
@@ -287,7 +294,7 @@ class AcquisitionControlPanel(QFrame):
                 border: 1px solid #E0E7FF;
                 border-radius: 10px;
                 background-color: #F5FBFF;
-                text-align: center;
+
                 font: 10px "Inter";
             }
             
@@ -605,7 +612,7 @@ class DataVisualizationArea(QFrame):
                 background-color: #F5FBFF;
                 color: #445868;
                 padding: 8px 21px;
-                margin-right: 2px;
+
                 border-top-left-radius: 8px;
                 border-top-right-radius: 8px;
                 font-weight: 500;

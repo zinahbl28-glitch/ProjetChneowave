@@ -24,6 +24,7 @@ from .maritime_button import (
     DangerButton
 )
 from .progress_stepper import ProgressStepper
+from .maritime_grid import MaritimeGrid
 
 # Exports publics
 __all__ = [
@@ -36,7 +37,8 @@ __all__ = [
     'OutlineButton',
     'GhostButton',
     'DangerButton',
-    'ProgressStepper'
+    'ProgressStepper',
+    'MaritimeGrid'
 ]
 
 # Métadonnées du package

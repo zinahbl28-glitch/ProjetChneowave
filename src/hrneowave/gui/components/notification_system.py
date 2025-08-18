@@ -150,7 +150,7 @@ class ToastNotification(QWidget):
         # Message
         self.message_label = QLabel(self.notification.message)
         self.message_label.setWordWrap(True)
-        self.message_label.setStyleSheet("color: #424242; line-height: 1.4;")
+        self.message_label.setStyleSheet("color: #424242;")
         layout.addWidget(self.message_label)
         
         # Actions
@@ -378,7 +378,7 @@ class NotificationCenter(QWidget):
         # Message
         message_label = QLabel(notification.message)
         message_label.setWordWrap(True)
-        message_label.setStyleSheet("color: #424242; margin-top: 4px;")
+        message_label.setStyleSheet("color: #424242;")
         card_layout.addWidget(message_label)
         
         # Insérer au début de la liste

@@ -14,13 +14,30 @@ import sys
 from typing import Optional, Union
 
 try:
-    from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QFrame
-    from PyQt6.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QRect
-    from PyQt6.QtGui import QPainter, QPainterPath, QColor, QPen
+    from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QFrame
+    from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, Signal, QRect
+    from PySide6.QtGui import QPainter, QPainterPath, QColor, QPen
+    pyqtSignal = Signal
 except ImportError:
-    from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QFrame
-    from PyQt5.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QRect
-    from PyQt5.QtGui import QPainter, QPainterPath, QColor, QPen
+    try:
+        from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QFrame
+        from PyQt6.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QRect
+        from PyQt6.QtGui import QPainter, QPainterPath, QColor, QPen
+    except ImportError:
+        from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QFrame
+        from PyQt5.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QRect
+        from PyQt5.QtGui import QPainter, QPainterPath, QColor, QPen
+
+# Import du système d'animations Phase 6
+try:
+    from ...animations.micro_interactions import MaritimeMicroInteractions, InteractionState
+    from ...animations.animation_system import MaritimeAnimator, AnimationType
+except ImportError:
+    # Fallback si le système d'animations n'est pas disponible
+    MaritimeMicroInteractions = None
+    InteractionState = None
+    MaritimeAnimator = None
+    AnimationType = None
 
 
 class MaritimeCard(QFrame):
@@ -67,6 +84,14 @@ class MaritimeCard(QFrame):
         self.clickable = clickable
         self._is_hovered = False
         
+        # Système d'animations Phase 6
+        if MaritimeMicroInteractions:
+            self.micro_interactions = MaritimeMicroInteractions(self)
+            self.animator = MaritimeAnimator(self)
+        else:
+            self.micro_interactions = None
+            self.animator = None
+        
         # Configuration de base
         self.setFrameStyle(QFrame.Shape.NoFrame)
         self.setLineWidth(0)
@@ -79,6 +104,10 @@ class MaritimeCard(QFrame):
         
         # Styles
         self._apply_maritime_style()
+        
+        # Configuration des micro-interactions
+        if self.micro_interactions:
+            self._setup_micro_interactions()
         
         # Événements
         if self.clickable:
@@ -95,6 +124,60 @@ class MaritimeCard(QFrame):
         self.opacity_animation = QPropertyAnimation(self, b"windowOpacity")
         self.opacity_animation.setDuration(300)
         self.opacity_animation.setEasingCurve(QEasingCurve.Type.OutCubic)
+    
+    def _setup_micro_interactions(self):
+        """Configure les micro-interactions Phase 6."""
+        if not self.micro_interactions:
+            return
+            
+        # Configuration des interactions pour cartes
+        config = {
+            'hover_scale': 1.01,
+            'press_scale': 0.99,
+            'transition_duration': 200,
+            'elevation_offset': 2
+        }
+        
+        if hasattr(self.micro_interactions, 'configure_card_interactions'):
+            self.micro_interactions.configure_card_interactions(config)
+        else:
+            # Fallback si la méthode n'existe pas
+            pass
+    
+    def enterEvent(self, event):
+        """Gestion de l'entrée de la souris."""
+        super().enterEvent(event)
+        self._is_hovered = True
+        self.hovered.emit(True)
+        
+        if self.micro_interactions:
+            self.micro_interactions.trigger_hover_enter()
+    
+    def leaveEvent(self, event):
+        """Gestion de la sortie de la souris."""
+        super().leaveEvent(event)
+        self._is_hovered = False
+        self.hovered.emit(False)
+        
+        if self.micro_interactions:
+            self.micro_interactions.trigger_hover_leave()
+    
+    def mousePressEvent(self, event):
+        """Gestion du clic de souris."""
+        if self.clickable:
+            super().mousePressEvent(event)
+            
+            if self.micro_interactions:
+                self.micro_interactions.trigger_press()
+    
+    def mouseReleaseEvent(self, event):
+        """Gestion du relâchement de souris."""
+        if self.clickable:
+            super().mouseReleaseEvent(event)
+            self.clicked.emit()
+            
+            if self.micro_interactions:
+                self.micro_interactions.trigger_release()
     
     def _setup_layout(self):
         """Configure le layout principal de la card."""
@@ -135,24 +218,23 @@ class MaritimeCard(QFrame):
         }}
         
         MaritimeCard[class="{elevation_class}"] {{
-            box-shadow: 0 4px 12px rgba(10, 25, 41, 0.15);
+            border: 2px solid rgba(10, 25, 41, 0.15);
         }}
         
         MaritimeCard[class="{clickable_class}"] {{
-            cursor: pointer;
+            /* cursor: pointer; géré par setCursor() */
         }}
         
         MaritimeCard:hover {{
             border-color: {self.MARITIME_COLORS['tidal_cyan']};
-            box-shadow: 0 8px 24px rgba(10, 25, 41, 0.2);
+            border: 2px solid rgba(10, 25, 41, 0.2);
         }}
         
         QLabel#maritime_card_title {{
             font-size: 20px;
             font-weight: 600;
             color: {self.MARITIME_COLORS['storm_gray']};
-            margin-bottom: {self.FIBONACCI_SPACES[0]}px;
-            letter-spacing: -0.02em;
+
         }}
         """
         

@@ -15,13 +15,13 @@ import sys
 from typing import Optional, Union
 
 try:
-    from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QFrame
-    from PyQt6.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QTimer
-    from PyQt6.QtGui import QFont, QPixmap, QPainter, QColor, QPen
+    from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QFrame
+    from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, Signal, QTimer
+    from PySide6.QtGui import QFont, QPixmap, QPainter, QColor, QPen
 except ImportError:
-    from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QFrame
-    from PyQt5.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QTimer
-    from PyQt5.QtGui import QFont, QPixmap, QPainter, QColor, QPen
+    from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QFrame
+    from PyQt6.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal as Signal, QTimer
+    from PyQt6.QtGui import QFont, QPixmap, QPainter, QColor, QPen
 
 from .maritime_card import MaritimeCard
 
@@ -39,8 +39,8 @@ class KPIIndicator(MaritimeCard):
     """
     
     # Signaux
-    value_changed = pyqtSignal(float)  # Nouvelle valeur
-    threshold_exceeded = pyqtSignal(str, float)  # Type seuil, valeur
+    value_changed = Signal(float)  # Nouvelle valeur
+    threshold_exceeded = Signal(str, float)  # Type seuil, valeur
     
     # Types d'état
     STATE_NORMAL = "normal"
@@ -84,10 +84,13 @@ class KPIIndicator(MaritimeCard):
     
     def _setup_value_animation(self):
         """Configure l'animation de changement de valeur."""
-        self.value_animation = QPropertyAnimation(self, b"animated_value")
-        self.value_animation.setDuration(800)
-        self.value_animation.setEasingCurve(QEasingCurve.Type.OutCubic)
-        self.value_animation.valueChanged.connect(self._update_display_value)
+        # Animation simplifiée sans propriété Qt personnalisée
+        self.value_animation = QTimer()
+        self.value_animation.timeout.connect(self._animate_step)
+        self.animation_steps = 0
+        self.animation_total_steps = 20
+        self.animation_start_value = 0.0
+        self.animation_end_value = 0.0
     
     def _setup_ui(self):
         """Configure l'interface du KPI."""
@@ -130,9 +133,10 @@ class KPIIndicator(MaritimeCard):
             try:
                 pixmap = QPixmap(self.icon_path)
                 if not pixmap.isNull():
-                    # Redimensionner l'icône
+                    # Redimensionner l'icône dynamiquement
+                    icon_size = self.FIBONACCI_SPACES[2]  # 21px base
                     scaled_pixmap = pixmap.scaled(
-                        24, 24, 
+                        icon_size, icon_size, 
                         Qt.AspectRatioMode.KeepAspectRatio, 
                         Qt.TransformationMode.SmoothTransformation
                     )
@@ -156,8 +160,7 @@ class KPIIndicator(MaritimeCard):
             font-size: 32px;
             font-weight: 600;
             color: {value_color};
-            letter-spacing: -0.02em;
-            line-height: 1.2;
+
             margin: {self.FIBONACCI_SPACES[0]}px 0;
         }}
         
@@ -165,13 +168,12 @@ class KPIIndicator(MaritimeCard):
             font-size: 12px;
             font-weight: 400;
             color: {self.MARITIME_COLORS['slate_gray']};
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            line-height: 1.4;
+            /* text-transform not supported in Qt */
+
         }}
         
         QLabel#kpi_icon {{
-            margin-bottom: {self.FIBONACCI_SPACES[0]}px;
+
         }}
         """
         
@@ -199,6 +201,24 @@ class KPIIndicator(MaritimeCard):
         if hasattr(self, 'value_label'):
             self.value_label.setText(text)
     
+    def _animate_step(self):
+        """Étape d'animation pour la transition de valeur."""
+        if self.animation_steps >= self.animation_total_steps:
+            self.value_animation.stop()
+            self._current_value = self.animation_end_value
+            self._update_display_value()
+            return
+        
+        # Calcul de la valeur interpolée avec easing
+        progress = self.animation_steps / self.animation_total_steps
+        # Easing out cubic
+        eased_progress = 1 - pow(1 - progress, 3)
+        
+        interpolated_value = self.animation_start_value + (self.animation_end_value - self.animation_start_value) * eased_progress
+        self._update_display_value(interpolated_value)
+        
+        self.animation_steps += 1
+    
     def set_value(self, value: Union[int, float], animate: bool = True):
         """Définit une nouvelle valeur avec animation optionnelle."""
         new_value = float(value)
@@ -206,9 +226,10 @@ class KPIIndicator(MaritimeCard):
         if animate and abs(new_value - self._current_value) > 0.001:
             # Animation de la valeur
             self._target_value = new_value
-            self.value_animation.setStartValue(self._current_value)
-            self.value_animation.setEndValue(new_value)
-            self.value_animation.start()
+            self.animation_start_value = self._current_value
+            self.animation_end_value = new_value
+            self.animation_steps = 0
+            self.value_animation.start(40)  # 40ms interval = 800ms total
         else:
             # Mise à jour directe
             self._current_value = new_value

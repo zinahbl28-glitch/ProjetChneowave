@@ -15,13 +15,19 @@ import sys
 from typing import Optional, List, Dict, Tuple
 
 try:
-    from PyQt6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton
-    from PyQt6.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QRect, QTimer
-    from PyQt6.QtGui import QPainter, QColor, QPen, QBrush, QFont, QFontMetrics
+    from PySide6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QSizePolicy
+    from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, Signal, QRect, QTimer
+    from PySide6.QtGui import QPainter, QColor, QPen, QBrush, QFont, QFontMetrics
+    pyqtSignal = Signal  # Compatibility alias
 except ImportError:
-    from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton
-    from PyQt5.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QRect, QTimer
-    from PyQt5.QtGui import QPainter, QColor, QPen, QBrush, QFont, QFontMetrics
+    try:
+        from PyQt6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QSizePolicy
+        from PyQt6.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QRect, QTimer
+        from PyQt6.QtGui import QPainter, QColor, QPen, QBrush, QFont, QFontMetrics
+    except ImportError:
+        from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QSizePolicy
+        from PyQt5.QtCore import Qt, QPropertyAnimation, QEasingCurve, pyqtSignal, QRect, QTimer
+        from PyQt5.QtGui import QPainter, QColor, QPen, QBrush, QFont, QFontMetrics
 
 
 class ProgressStepper(QWidget):
@@ -154,7 +160,10 @@ class ProgressStepper(QWidget):
             if self.show_labels:
                 height += self.FIBONACCI_SPACES[2] + 20  # Espace + hauteur du label
             
-            self.setFixedSize(total_width, height)
+            self.setMinimumSize(total_width, height)
+            self_policy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+
+            self.setSizePolicy(self_policy)
         else:
             # Largeur : étape + label si affiché
             width = self.step_size
@@ -172,7 +181,10 @@ class ProgressStepper(QWidget):
             total_height = (len(self.steps) * step_height + 
                            (len(self.steps) - 1) * connector_length)
             
-            self.setFixedSize(width, total_height)
+            self.setMinimumSize(width, total_height)
+            self_policy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Preferred)
+
+            self.setSizePolicy(self_policy)
     
     def _apply_stepper_style(self):
         """Applique le style maritime au stepper."""

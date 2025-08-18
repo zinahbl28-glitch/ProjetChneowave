@@ -224,7 +224,7 @@ class SystemStatusWidget(QWidget):
         # Titre
         title_label = QLabel("État du Système")
         title_label.setFont(QFont("Segoe UI", 10, QFont.Weight.Bold))
-        title_label.setStyleSheet(f"color: {MaterialColor.ON_SURFACE};")
+        title_label.setStyleSheet("color: #37474F;")
         layout.addWidget(title_label)
         
         # Conteneur pour les cartes de statut

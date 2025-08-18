@@ -208,7 +208,7 @@ class MaterialTheme(QObject):
                     border-radius: {self.BORDER_RADIUS['md']}px;
                     padding: {self.SPACING['sm']}px {self.SPACING['md']}px;
                     font-weight: 500;
-                    transition: all {self.ANIMATION_DURATION['normal']}ms {self.EASING_CURVES['standard']};
+                    /* transition not supported in Qt */
                 }}
                 QPushButton:hover {
                     background-color: {palette['primary_variant']};
@@ -230,7 +230,7 @@ class MaterialTheme(QObject):
                     border-radius: {self.BORDER_RADIUS['md']}px;
                     padding: {self.SPACING['sm']}px {self.SPACING['md']}px;
                     font-weight: 500;
-                    transition: all {self.ANIMATION_DURATION['normal']}ms {self.EASING_CURVES['standard']};
+                    /* transition not supported in Qt */
                 }}
                 QPushButton:hover {{
                     background-color: {palette['hover']};
@@ -249,7 +249,7 @@ class MaterialTheme(QObject):
                     border-radius: {self.BORDER_RADIUS['md']}px;
                     padding: {self.SPACING['sm']}px {self.SPACING['md']}px;
                     font-weight: 500;
-                    transition: all {self.ANIMATION_DURATION['normal']}ms {self.EASING_CURVES['standard']};
+                    /* transition not supported in Qt */
                 }}
                 QPushButton:hover {{
                     background-color: {palette['hover']};
@@ -273,7 +273,7 @@ class MaterialTheme(QObject):
                 border: 1px solid {palette['outline_variant']};
                 border-radius: {self.BORDER_RADIUS['md']}px;
                 {shadow}
-                transition: all {self.ANIMATION_DURATION['normal']}ms {self.EASING_CURVES['standard']};
+                /* transition not supported in Qt */
             }}
             QWidget:hover {
                 border-color: {palette['outline']};
@@ -292,7 +292,7 @@ class MaterialTheme(QObject):
                 border-radius: {self.BORDER_RADIUS['sm']}px;
                 padding: {self.SPACING['sm']}px {self.SPACING['md']}px;
                 font-size: 14px;
-                transition: all {self.ANIMATION_DURATION['normal']}ms {self.EASING_CURVES['standard']};
+                /* transition not supported in Qt */
             }}
             QLineEdit:focus, QTextEdit:focus, QSpinBox:focus, QDoubleSpinBox:focus, QComboBox:focus {{
                 border-color: {palette['primary']};
@@ -320,7 +320,7 @@ class MaterialTheme(QObject):
                 padding: {self.SPACING['md']}px {self.SPACING['lg']}px;
                 text-align: left;
                 font-weight: 500;
-                transition: all {self.ANIMATION_DURATION['normal']}ms {self.EASING_CURVES['standard']};
+                /* transition not supported in Qt */
             }}
             QPushButton#nav-item:hover {
                 background-color: {palette['hover']};

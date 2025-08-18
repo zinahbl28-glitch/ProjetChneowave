@@ -39,7 +39,10 @@ class ReportConfigPanel(QFrame):
     def setup_ui(self):
         """Configure l'interface du panneau de configuration"""
         self.setObjectName("report_config_panel")
-        self.setFixedWidth(int(280 * GOLDEN_RATIO))  # ~453px
+        # Largeur dynamique avec contraintes Golden Ratio
+        self.setMinimumWidth(int(260 * GOLDEN_RATIO))  # ~421px minimum
+        self.setMaximumWidth(int(300 * GOLDEN_RATIO))  # ~485px maximum
+        self.setSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
         
         # Layout principal
         main_layout = QVBoxLayout(self)
@@ -84,7 +87,8 @@ class ReportConfigPanel(QFrame):
         """Configure l'en-tête du panneau"""
         header_frame = QFrame()
         header_frame.setObjectName("config_panel_header")
-        header_frame.setFixedHeight(89)  # Fibonacci
+        header_frame.setMinimumHeight(89)  # Fibonacci minimum
+        header_frame.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
         
         header_layout = QVBoxLayout(header_frame)
         header_layout.setContentsMargins(FIBONACCI_SPACING[2], FIBONACCI_SPACING[2], 
@@ -137,7 +141,8 @@ class ReportConfigPanel(QFrame):
         
         # Aperçu du template
         preview_frame = QFrame()
-        preview_frame.setFixedHeight(120)
+        preview_frame.setMinimumHeight(120)
+        preview_frame.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
         preview_frame.setObjectName("template_preview")
         
         preview_layout = QVBoxLayout(preview_frame)
@@ -246,7 +251,7 @@ class ReportConfigPanel(QFrame):
                 }
                 
                 QCheckBox::indicator:checked:after {
-                    content: "✓";
+                    /* content not supported in Qt */
                     color: white;
                     font-weight: bold;
                 }
@@ -326,7 +331,7 @@ class ReportConfigPanel(QFrame):
         self.description_edit.setStyleSheet(field_style)
         
         # Labels avec style
-        label_style = "color: #0A1929; font-weight: 500; font-size: 12px;"
+        label_style = "color: #0A1929; font-weight: normal; font-size: 12px;"
         
         title_label = QLabel("Titre:")
         title_label.setStyleSheet(label_style)
@@ -390,7 +395,7 @@ class ReportConfigPanel(QFrame):
                     border: none;
                     border-radius: 17px;
                     padding: 5px 8px;
-                    font-weight: 500;
+                    font-weight: normal;
                 }
                 
                 QPushButton:hover {
@@ -412,7 +417,7 @@ class ReportConfigPanel(QFrame):
                 border: none;
                 border-radius: 27px;
                 padding: 13px 21px;
-                font-weight: 700;
+                font-weight: bold;
                 font-size: 12px;
             }
             
@@ -649,14 +654,14 @@ class ReportPreviewArea(QFrame):
         
         # Contenu d'exemple
         sample_content = """
-<h2 style="color: #0A1929; font-family: Inter; font-weight: 600;">📋 Résumé Exécutif</h2>
+<h2 style="color: #0A1929; font-family: Inter; font-weight: bold;">📋 Résumé Exécutif</h2>
 <p style="font-family: Inter; line-height: 1.6; color: #445868;">
 Ce rapport présente une analyse complète des données d'acquisition maritime collectées 
 par le système CHNeoWave. L'analyse couvre une période de mesure de 60 minutes avec 
 une fréquence d'échantillonnage de 1000 Hz sur 4 canaux de mesure.
 </p>
 
-<h2 style="color: #0A1929; font-family: Inter; font-weight: 600;">📊 Aperçu des Données</h2>
+<h2 style="color: #0A1929; font-family: Inter; font-weight: bold;">📊 Aperçu des Données</h2>
 <p style="font-family: Inter; line-height: 1.6; color: #445868;">
 <strong>Fichier analysé:</strong> acquisition_2025_01_15_10h30.csv<br>
 <strong>Durée d'acquisition:</strong> 3600 secondes<br>
@@ -665,7 +670,7 @@ une fréquence d'échantillonnage de 1000 Hz sur 4 canaux de mesure.
 <strong>Nombre d'échantillons:</strong> 3,600,000
 </p>
 
-<h2 style="color: #0A1929; font-family: Inter; font-weight: 600;">📈 Résultats Statistiques</h2>
+<h2 style="color: #0A1929; font-family: Inter; font-weight: bold;">📈 Résultats Statistiques</h2>
 <table style="width: 100%; border-collapse: collapse; font-family: Inter;">
 <tr style="background-color: #F5FBFF;">
     <th style="padding: 8px; border: 1px solid #E0E7FF; color: #0A1929;">Canal</th>
@@ -699,14 +704,14 @@ une fréquence d'échantillonnage de 1000 Hz sur 4 canaux de mesure.
 </tr>
 </table>
 
-<h2 style="color: #0A1929; font-family: Inter; font-weight: 600;">🌊 Analyse Spectrale</h2>
+<h2 style="color: #0A1929; font-family: Inter; font-weight: bold;">🌊 Analyse Spectrale</h2>
 <p style="font-family: Inter; line-height: 1.6; color: #445868;">
 L'analyse spectrale révèle une fréquence dominante à 2.5 Hz avec des harmoniques 
 significatives à 5.0 Hz et 7.5 Hz. Le rapport signal/bruit est excellent avec 
 un niveau de bruit de fond à -40 dB.
 </p>
 
-<h2 style="color: #0A1929; font-family: Inter; font-weight: 600;">✅ Conclusions</h2>
+<h2 style="color: #0A1929; font-family: Inter; font-weight: bold;">✅ Conclusions</h2>
 <ul style="font-family: Inter; line-height: 1.6; color: #445868;">
 <li>Les données présentent une excellente qualité avec un rapport signal/bruit optimal</li>
 <li>Aucune anomalie ou dérive significative détectée sur la période d'acquisition</li>
@@ -714,7 +719,7 @@ un niveau de bruit de fond à -40 dB.
 <li>La stabilité thermique du système est satisfaisante</li>
 </ul>
 
-<h2 style="color: #0A1929; font-family: Inter; font-weight: 600;">💡 Recommandations</h2>
+<h2 style="color: #0A1929; font-family: Inter; font-weight: bold;">💡 Recommandations</h2>
 <ul style="font-family: Inter; line-height: 1.6; color: #445868;">
 <li>Maintenir les paramètres d'acquisition actuels pour les prochaines mesures</li>
 <li>Effectuer une calibration de contrôle dans 30 jours</li>
@@ -784,7 +789,7 @@ un niveau de bruit de fond à -40 dB.
                 border: none;
                 border-radius: 17px;
                 padding: 8px 13px;
-                font-weight: 500;
+                font-weight: normal;
             }
             
             QPushButton:hover {
@@ -870,7 +875,7 @@ un niveau de bruit de fond à -40 dB.
         if dialog.exec() == QPrintDialog.DialogCode.Accepted:
             self.report_text.print(printer)
             
-    def update_content(self, content: str):
+    def update_content(self, /* content: str):
         """Met à jour le contenu du rapport"""
         self.report_text.setHtml(content)
         
@@ -931,7 +936,7 @@ class ReportView(QWidget):
         # Style de base
         self.setStyleSheet("""
             QWidget#report_view {
-                background-color: #F5FBFF;
+                background-color: #F5FBFF; - Non supporté par Qt */
             }
         """)
         
