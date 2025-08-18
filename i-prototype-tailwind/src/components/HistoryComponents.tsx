@@ -5,9 +5,7 @@ import {
   ChartBarIcon,
   ArrowDownTrayIcon,
   EyeIcon,
-  DownloadIcon,
   TrashIcon,
-  FilterIcon,
   CalendarIcon,
   UserIcon,
   CheckCircleIcon,
@@ -570,7 +568,7 @@ const HistoryComponents: React.FC = () => {
                       </button>
                       {selectedItem.size && (
                         <button className="btn btn-primary flex-1 flex items-center justify-center gap-2">
-                          <DownloadIcon className="w-4 h-4" />
+                          <ArrowDownTrayIcon className="w-4 h-4" />
                           Télécharger
                         </button>
                       )}

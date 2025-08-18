@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   DocumentTextIcon,
   PencilIcon,
-  SaveIcon,
+  ArrowDownTrayIcon,
   XMarkIcon,
   PlusIcon,
   TrashIcon,
@@ -492,7 +492,7 @@ const MetadataEditor: React.FC = () => {
                     onClick={saveMetadata}
                     className="btn btn-primary flex items-center gap-2"
                   >
-                    <SaveIcon className="w-4 h-4" />
+                    <ArrowDownTrayIcon className="w-4 h-4" />
                     Sauvegarder
                   </button>
                 </>
