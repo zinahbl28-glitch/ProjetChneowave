@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHNeoWave - Interface Scientifique Maritime</title>
+    <style>
+        /* Design System Maritime - Variables CSS */
+        :root {
+            /* Couleurs principales */
+            --ocean-deep: #0A1929;
+            --harbor-blue: #1565C0;
+            --steel-blue: #1976D2;
+            --tidal-cyan: #00BCD4;
+            --foam-white: #FAFBFC;
+            --frost-light: #F5F7FA;
+            --storm-gray: #37474F;
+            --slate-gray: #546E7A;
+            --coral-alert: #FF5722;
+            --emerald-success: #4CAF50;
+            --amber-warning: #FF9800;
+            --azure-info: #2196F3;
+
+            /* Espacement Golden Ratio */
+            --space-xs: 0.5rem;
+            --space-sm: 0.8125rem;
+            --space-md: 1.3125rem;
+            --space-lg: 2.125rem;
+            --space-xl: 3.4375rem;
+            --space-2xl: 5.5625rem;
+
+            /* Typographie */
+            --font-family: 'Inter', 'Segoe UI', sans-serif;
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+
+            /* Ombres */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Reset et base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--ocean-deep);
+            color: var(--storm-gray);
+            line-height: 1.6;
+        }
+
+        /* Layout principal */
+        .app-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--foam-white);
+            border-right: 2px solid var(--frost-light);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .logo h1 {
+            color: var(--harbor-blue);
+            font-size: var(--text-2xl);
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: var(--space-sm);
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: var(--space-md);
+            color: var(--storm-gray);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--frost-light);
+            color: var(--harbor-blue);
+        }
+
+        .nav-link.active {
+            background: var(--harbor-blue);
+            color: white;
+        }
+
+        .nav-icon {
+            margin-right: var(--space-sm);
+            font-size: var(--text-lg);
+        }
+
+        /* Contenu principal */
+        .main-content {
+            padding: var(--space-xl);
+            background: var(--frost-light);
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: var(--space-xl);
+            margin-bottom: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--frost-light);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .card-title {
+            font-size: var(--text-xl);
+            font-weight: bold;
+            color: var(--storm-gray);
+        }
+
+        /* Boutons */
+        .btn {
+            padding: var(--space-md) var(--space-lg);
+            border: none;
+            border-radius: 8px;
+            font-size: var(--text-base);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .btn-primary {
+            background: var(--harbor-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--steel-blue);
+            transform: translateY(-1px);
+        }
+
+        .btn-success {
+            background: var(--emerald-success);
+            color: white;
+        }
+
+        .btn-warning {
+            background: var(--amber-warning);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--coral-alert);
+            color: white;
+        }
+
+        /* Formulaires */
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-weight: 500;
+            color: var(--storm-gray);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--frost-light);
+            border-radius: 8px;
+            font-size: var(--text-base);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--harbor-blue);
+        }
+
+        /* Grille */
+        .grid {
+            display: grid;
+            gap: var(--space-lg);
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* KPIs */
+        .kpi-card {
+            text-align: center;
+            padding: var(--space-lg);
+            background: linear-gradient(135deg, var(--harbor-blue), var(--steel-blue));
+            color: white;
+            border-radius: 12px;
+        }
+
+        .kpi-value {
+            font-size: var(--text-3xl);
+            font-weight: bold;
+            margin-bottom: var(--space-sm);
+        }
+
+        .kpi-label {
+            font-size: var(--text-sm);
+            opacity: 0.9;
+        }
+
+        /* Graphiques */
+        .chart-container {
+            height: 300px;
+            background: var(--foam-white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--frost-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .app-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: fixed;
+                left: -280px;
+                top: 0;
+                height: 100vh;
+                z-index: 1000;
+                transition: left 0.3s ease;
+            }
+            
+            .sidebar.open {
+                left: 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* États */
+        .hidden {
+            display: none;
+        }
+
+        /* Loading */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--frost-light);
+            border-radius: 50%;
+            border-top-color: var(--harbor-blue);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="logo">
+                <h1>🌊 CHNeoWave</h1>
+                <p style="color: var(--slate-gray); font-size: var(--text-sm);">Interface Scientifique Maritime</p>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#welcome" class="nav-link active" data-view="welcome">
+                        <span class="nav-icon">🏠</span>
+                        Accueil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#dashboard" class="nav-link" data-view="dashboard">
+                        <span class="nav-icon">📊</span>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#calibration" class="nav-link" data-view="calibration">
+                        <span class="nav-icon">⚖️</span>
+                        Calibration
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#acquisition" class="nav-link" data-view="acquisition">
+                        <span class="nav-icon">📡</span>
+                        Acquisition
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#analysis" class="nav-link" data-view="analysis">
+                        <span class="nav-icon">🔬</span>
+                        Analyse
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#export" class="nav-link" data-view="export">
+                        <span class="nav-icon">📋</span>
+                        Export
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Contenu principal -->
+        <main class="main-content">
+            <!-- Vue d'accueil -->
+            <div id="welcome" class="view fade-in">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">👋 Bienvenue dans CHNeoWave</h2>
+                    </div>
+                    <p style="margin-bottom: var(--space-lg); color: var(--slate-gray);">
+                        Interface scientifique moderne pour l'analyse et l'acquisition de données de houle.
+                    </p>
+                    
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-md);">🆕 Créer un nouveau projet</h3>
+                            <p style="margin-bottom: var(--space-lg); color: var(--slate-gray);">
+                                Démarrez une nouvelle étude avec des paramètres personnalisés.
+                            </p>
+                            <button class="btn btn-primary" onclick="showProjectForm()">
+                                Créer un projet
+                            </button>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-md);">📁 Importer un projet</h3>
+                            <p style="margin-bottom: var(--space-lg); color: var(--slate-gray);">
+                                Ouvrez un projet existant depuis votre ordinateur.
+                            </p>
+                            <button class="btn btn-primary" onclick="importProject()">
+                                Importer un projet
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vue Dashboard -->
+            <div id="dashboard" class="view hidden">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📊 Dashboard - Projet: Étude Canal Maritime</h2>
+                        <span style="color: var(--emerald-success); font-weight: 500;">● Actif</span>
+                    </div>
+                    
+                    <!-- KPIs temps réel -->
+                    <div class="grid grid-3" style="margin-bottom: var(--space-xl);">
+                        <div class="kpi-card">
+                            <div class="kpi-value" id="hmax-value">2.45</div>
+                            <div class="kpi-label">Hmax (m)</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-value" id="hmin-value">0.12</div>
+                            <div class="kpi-label">Hmin (m)</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-value" id="h13-value">1.87</div>
+                            <div class="kpi-label">H1/3 (m)</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Actions rapides -->
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-md);">Actions Rapides</h3>
+                            <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+                                <button class="btn btn-primary" onclick="navigateTo('calibration')">
+                                    ⚖️ Calibration
+                                </button>
+                                <button class="btn btn-success" onclick="navigateTo('acquisition')">
+                                    📡 Acquisition
+                                </button>
+                                <button class="btn btn-warning" onclick="navigateTo('analysis')">
+                                    🔬 Analyse
+                                </button>
+                                <button class="btn btn-danger" onclick="navigateTo('export')">
+                                    📋 Export
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-md);">Statut Système</h3>
+                            <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Sondes connectées:</span>
+                                    <span style="color: var(--emerald-success);">4/4</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Acquisition:</span>
+                                    <span style="color: var(--emerald-success);">Active</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Stockage:</span>
+                                    <span style="color: var(--azure-info);">75%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vue Calibration -->
+            <div id="calibration" class="view hidden">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">⚖️ Calibration des Sondes</h2>
+                    </div>
+                    
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-md);">Configuration</h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Nombre de sondes</label>
+                                <select class="form-input" id="probe-count">
+                                    <option value="1">1 sonde</option>
+                                    <option value="2">2 sondes</option>
+                                    <option value="3">3 sondes</option>
+                                    <option value="4" selected>4 sondes</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Points de calibration par sonde</label>
+                                <select class="form-input" id="calibration-points">
+                                    <option value="3">3 points</option>
+                                    <option value="5" selected>5 points</option>
+                                    <option value="7">7 points</option>
+                                    <option value="10">10 points</option>
+                                </select>
+                            </div>
+                            
+                            <button class="btn btn-primary" onclick="startCalibration()">
+                                🚀 Démarrer la calibration
+                            </button>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-md);">Processus de Calibration</h3>
+                            
+                            <div id="calibration-steps" style="display: none;">
+                                <div style="margin-bottom: var(--space-md);">
+                                    <strong>Sonde 1 - Étape 1/5</strong>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Hauteur de référence (cm)</label>
+                                    <input type="number" class="form-input" id="reference-height" value="0" step="1">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Tension mesurée (V)</label>
+                                    <input type="number" class="form-input" id="measured-voltage" step="0.001">
+                                </div>
+                                
+                                <div style="display: flex; gap: var(--space-sm);">
+                                    <button class="btn btn-success" onclick="validatePoint()">
+                                        ✅ Valider le point
+                                    </button>
+                                    <button class="btn btn-warning" onclick="nextPoint()">
+                                        ⏭️ Point suivant
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div id="calibration-ready">
+                                <p style="color: var(--slate-gray);">Configurez les paramètres et démarrez la calibration.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Graphique de calibration -->
+                    <div class="card">
+                        <h3 style="margin-bottom: var(--space-md);">Graphique de Calibration</h3>
+                        <div class="chart-container">
+                            <p style="color: var(--slate-gray);">Graphique de calibration en temps réel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vue Acquisition -->
+            <div id="acquisition" class="view hidden">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📡 Acquisition de Données</h2>
+                        <div style="display: flex; gap: var(--space-sm);">
+                            <button class="btn btn-success" id="start-btn" onclick="startAcquisition()">
+                                ▶️ Démarrer
+                            </button>
+                            <button class="btn btn-danger" id="stop-btn" onclick="stopAcquisition()" disabled>
+                                ⏹️ Arrêter
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-md);">Paramètres d'Acquisition</h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Fréquence d'échantillonnage (Hz)</label>
+                                <select class="form-input" id="sampling-frequency">
+                                    <option value="10">10 Hz</option>
+                                    <option value="20">20 Hz</option>
+                                    <option value="50" selected>50 Hz</option>
+                                    <option value="100">100 Hz</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Cycle de temps (s)</label>
+                                <input type="number" class="form-input" id="time-cycle" value="30" min="1" max="3600">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Durée d'acquisition</label>
+                                <input type="number" class="form-input" id="acquisition-duration" value="300" min="60" max="7200">
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-md);">Métriques Temps Réel</h3>
+                            
+                            <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Hmax:</span>
+                                    <span id="rt-hmax">--</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Hmin:</span>
+                                    <span id="rt-hmin">--</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>H1/3:</span>
+                                    <span id="rt-h13">--</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Temps écoulé:</span>
+                                    <span id="elapsed-time">00:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Graphiques temps réel -->
+                    <div class="card">
+                        <h3 style="margin-bottom: var(--space-md);">Visualisation Temps Réel</h3>
+                        <div class="grid grid-2">
+                            <div class="chart-container">
+                                <p style="color: var(--slate-gray);">Graphique individuel - Sonde 1</p>
+                            </div>
+                            <div class="chart-container">
+                                <p style="color: var(--slate-gray);">Graphique individuel - Sonde 2</p>
+                            </div>
+                        </div>
+                        <div class="chart-container" style="margin-top: var(--space-lg);">
+                            <p style="color: var(--slate-gray);">Graphique combiné - Toutes les sondes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vue Analyse -->
+            <div id="analysis" class="view hidden">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">🔬 Analyse des Données</h2>
+                    </div>
+                    
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-md);">Analyse Statistique</h3>
+                            
+                            <div style="margin-bottom: var(--space-lg);">
+                                <button class="btn btn-primary" onclick="runStatisticalAnalysis()">
+                                    📊 Lancer l'analyse statistique
+                                </button>
+                            </div>
+                            
+                            <div id="statistical-results" style="display: none;">
+                                <h4 style="margin-bottom: var(--space-md);">Résultats</h4>
+                                <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Hmax:</span>
+                                        <span id="stat-hmax">2.45 m</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Hmin:</span>
+                                        <span id="stat-hmin">0.12 m</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>H1/3:</span>
+                                        <span id="stat-h13">1.87 m</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Hs:</span>
+                                        <span id="stat-hs">1.92 m</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-md);">Analyse Avancée</h3>
+                            
+                            <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                                <button class="btn btn-primary" onclick="runGodaAnalysis()">
+                                    🌊 Analyse Goda
+                                </button>
+                                <button class="btn btn-primary" onclick="runFFTAnalysis()">
+                                    📈 Analyse FFT
+                                </button>
+                                <button class="btn btn-primary" onclick="runLeastSquares()">
+                                    📐 Moindres Carrés
+                                </button>
+                            </div>
+                            
+                            <div id="advanced-results" style="margin-top: var(--space-lg); display: none;">
+                                <h4 style="margin-bottom: var(--space-md);">Résultats Avancés</h4>
+                                <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Facteur de réflexion:</span>
+                                        <span id="reflection-factor">0.15</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Houle incidente:</span>
+                                        <span id="incident-wave">1.87 m</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Houle réfléchie:</span>
+                                        <span id="reflected-wave">0.28 m</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Graphiques d'analyse -->
+                    <div class="card">
+                        <h3 style="margin-bottom: var(--space-md);">Visualisations</h3>
+                        <div class="grid grid-3">
+                            <div class="chart-container">
+                                <p style="color: var(--slate-gray);">Distribution des vagues</p>
+                            </div>
+                            <div class="chart-container">
+                                <p style="color: var(--slate-gray);">Spectre de fréquence</p>
+                            </div>
+                            <div class="chart-container">
+                                <p style="color: var(--slate-gray);">Analyse Goda</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vue Export -->
+            <div id="export" class="view hidden">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📋 Export des Données</h2>
+                    </div>
+                    
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-md);">Types d'Export</h3>
+                            
+                            <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                                <button class="btn btn-primary" onclick="exportCalibration()">
+                                    ⚖️ Export Calibration
+                                </button>
+                                <button class="btn btn-primary" onclick="exportStatistical()">
+                                    📊 Export Statistiques
+                                </button>
+                                <button class="btn btn-primary" onclick="exportAdvanced()">
+                                    🔬 Export Analyse Avancée
+                                </button>
+                                <button class="btn btn-primary" onclick="exportAll()">
+                                    📦 Export Complet
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-md);">Formats Disponibles</h3>
+                            
+                            <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                                <label style="display: flex; align-items: center; gap: var(--space-sm);">
+                                    <input type="checkbox" checked> PDF (Rapport)
+                                </label>
+                                <label style="display: flex; align-items: center; gap: var(--space-sm);">
+                                    <input type="checkbox" checked> Excel (Données)
+                                </label>
+                                <label style="display: flex; align-items: center; gap: var(--space-sm);">
+                                    <input type="checkbox"> CSV (Brut)
+                                </label>
+                                <label style="display: flex; align-items: center; gap: var(--space-sm);">
+                                    <input type="checkbox"> HDF5 (Scientifique)
+                                </label>
+                            </div>
+                            
+                            <div style="margin-top: var(--space-lg);">
+                                <button class="btn btn-success" onclick="generateExport()">
+                                    🚀 Générer l'export
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Historique des exports -->
+                    <div class="card">
+                        <h3 style="margin-bottom: var(--space-md);">Historique des Exports</h3>
+                        <div style="background: var(--foam-white); padding: var(--space-md); border-radius: 8px;">
+                            <p style="color: var(--slate-gray);">Aucun export récent</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Navigation
+        function navigateTo(view) {
+            // Masquer toutes les vues
+            document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
+            
+            // Afficher la vue demandée
+            document.getElementById(view).classList.remove('hidden');
+            
+            // Mettre à jour la navigation
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            document.querySelector(`[data-view="${view}"]`).classList.add('active');
+        }
+
+        // Gestion des clics sur la navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const view = link.getAttribute('data-view');
+                navigateTo(view);
+            });
+        });
+
+        // Fonctions de calibration
+        function startCalibration() {
+            document.getElementById('calibration-steps').style.display = 'block';
+            document.getElementById('calibration-ready').style.display = 'none';
+        }
+
+        function validatePoint() {
+            // Simulation de validation
+            alert('Point validé !');
+        }
+
+        function nextPoint() {
+            // Simulation de passage au point suivant
+            alert('Point suivant...');
+        }
+
+        // Fonctions d'acquisition
+        let acquisitionInterval;
+        let elapsedSeconds = 0;
+
+        function startAcquisition() {
+            document.getElementById('start-btn').disabled = true;
+            document.getElementById('stop-btn').disabled = false;
+            
+            // Simulation des données temps réel
+            acquisitionInterval = setInterval(() => {
+                elapsedSeconds++;
+                const minutes = Math.floor(elapsedSeconds / 60);
+                const seconds = elapsedSeconds % 60;
+                document.getElementById('elapsed-time').textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                // Simulation des métriques
+                document.getElementById('rt-hmax').textContent = (2 + Math.random()).toFixed(2);
+                document.getElementById('rt-hmin').textContent = (0.1 + Math.random() * 0.2).toFixed(2);
+                document.getElementById('rt-h13').textContent = (1.5 + Math.random() * 0.5).toFixed(2);
+            }, 1000);
+        }
+
+        function stopAcquisition() {
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('stop-btn').disabled = true;
+            clearInterval(acquisitionInterval);
+        }
+
+        // Fonctions d'analyse
+        function runStatisticalAnalysis() {
+            document.getElementById('statistical-results').style.display = 'block';
+        }
+
+        function runGodaAnalysis() {
+            document.getElementById('advanced-results').style.display = 'block';
+        }
+
+        function runFFTAnalysis() {
+            alert('Analyse FFT en cours...');
+        }
+
+        function runLeastSquares() {
+            alert('Calcul par moindres carrés...');
+        }
+
+        // Fonctions d'export
+        function exportCalibration() {
+            alert('Export de calibration en cours...');
+        }
+
+        function exportStatistical() {
+            alert('Export des statistiques en cours...');
+        }
+
+        function exportAdvanced() {
+            alert('Export de l\'analyse avancée en cours...');
+        }
+
+        function exportAll() {
+            alert('Export complet en cours...');
+        }
+
+        function generateExport() {
+            alert('Génération de l\'export...');
+        }
+
+        // Fonctions utilitaires
+        function showProjectForm() {
+            alert('Formulaire de création de projet');
+        }
+
+        function importProject() {
+            alert('Import de projet');
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('CHNeoWave Interface chargée');
+        });
+    </script>
+</body>
+</html>
