@@ -1,0 +1,3397 @@
+{
+  "files_audited": [
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/bootstrap.py",
+      "emojis": [
+        {
+          "line": 47,
+          "emoji": "✅",
+          "context": "central = QLabel(\"CHNeoWave UI Infrastructure Ready ✅\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 51,
+          "pattern": "resize\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+          "values": [
+            [
+              "800",
+              "600"
+            ]
+          ],
+          "context": "self.resize(800, 600)"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/bootstrap_phase3.py",
+      "emojis": [
+        {
+          "line": 54,
+          "emoji": "🚀",
+          "context": "header_label = QLabel(\"🚀 CHNeoWave - Phase 3 - Project Manager\")"
+        },
+        {
+          "line": 72,
+          "emoji": "📋",
+          "context": "self.project_manager_btn = QPushButton(\"📋 Ouvrir Project Manager\")"
+        },
+        {
+          "line": 92,
+          "emoji": "✨",
+          "context": "self.project_wizard_btn = QPushButton(\"✨ Créer Nouveau Projet\")"
+        },
+        {
+          "line": 112,
+          "emoji": "📁",
+          "context": "self.project_importer_btn = QPushButton(\"📁 Importer Projet\")"
+        },
+        {
+          "line": 147,
+          "emoji": "📊",
+          "context": "status_title = QLabel(\"📊 Statut du Système\")"
+        },
+        {
+          "line": 152,
+          "emoji": "✅",
+          "context": "self.status_label = QLabel(\"✅ Système prêt - Project Manager initialisé\")"
+        },
+        {
+          "line": 156,
+          "emoji": "📋",
+          "context": "self.projects_summary_label = QLabel(\"📋 Aucun projet récent\")"
+        },
+        {
+          "line": 176,
+          "emoji": "️",
+          "context": "info_title = QLabel(\"ℹ️ Informations Phase 3\")"
+        },
+        {
+          "line": 182,
+          "emoji": "🎯",
+          "context": "🎯 <b>Fonctionnalités Implémentées:</b>"
+        },
+        {
+          "line": 189,
+          "emoji": "🏗",
+          "context": "🏗️ <b>Architecture:</b>"
+        },
+        {
+          "line": 189,
+          "emoji": "️",
+          "context": "🏗️ <b>Architecture:</b>"
+        },
+        {
+          "line": 195,
+          "emoji": "🧪",
+          "context": "🧪 <b>Tests:</b>"
+        },
+        {
+          "line": 219,
+          "emoji": "📋",
+          "context": "self.status_label.setText(\"📋 Project Manager ouvert\")"
+        },
+        {
+          "line": 228,
+          "emoji": "✨",
+          "context": "self.status_label.setText(\"✨ Project Wizard ouvert\")"
+        },
+        {
+          "line": 236,
+          "emoji": "📁",
+          "context": "self.status_label.setText(\"📁 Project Importer ouvert\")"
+        },
+        {
+          "line": 242,
+          "emoji": "✅",
+          "context": "self.status_label.setText(f\"✅ Projet chargé: {project.name}\")"
+        },
+        {
+          "line": 255,
+          "emoji": "✨",
+          "context": "self.status_label.setText(f\"✨ Projet créé: {project.name}\")"
+        },
+        {
+          "line": 260,
+          "emoji": "📁",
+          "context": "self.status_label.setText(f\"📁 Projet importé: {project.name}\")"
+        },
+        {
+          "line": 265,
+          "emoji": "📋",
+          "context": "self.status_label.setText(\"📋 Project Manager fermé\")"
+        },
+        {
+          "line": 278,
+          "emoji": "📋",
+          "context": "f\"📋 {total} projet(s) récent(s) | \""
+        },
+        {
+          "line": 283,
+          "emoji": "📋",
+          "context": "self.projects_summary_label.setText(\"📋 Aucun projet récent\")"
+        },
+        {
+          "line": 286,
+          "emoji": "❌",
+          "context": "self.projects_summary_label.setText(f\"❌ Erreur: {str(e)}\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 29,
+          "pattern": "resize\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+          "values": [
+            [
+              "1000",
+              "700"
+            ]
+          ],
+          "context": "self.resize(1000, 700)"
+        },
+        {
+          "line": 37,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "20"
+          ],
+          "context": "main_layout.setSpacing(20)"
+        },
+        {
+          "line": 38,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "30"
+          ],
+          "context": "main_layout.setContentsMargins(30, 30, 30, 30)"
+        },
+        {
+          "line": 55,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "24"
+          ],
+          "context": "header_label.setFont(QFont(\"Segoe UI\", 24, QFont.Bold))"
+        },
+        {
+          "line": 61,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "14"
+          ],
+          "context": "subtitle_label.setFont(QFont(\"Segoe UI\", 14))"
+        },
+        {
+          "line": 69,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "20"
+          ],
+          "context": "buttons_layout.setSpacing(20)"
+        },
+        {
+          "line": 73,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "12"
+          ],
+          "context": "self.project_manager_btn.setFont(QFont(\"Segoe UI\", 12, QFont.Bold))"
+        },
+        {
+          "line": 74,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "60"
+          ],
+          "context": "self.project_manager_btn.setMinimumHeight(60)"
+        },
+        {
+          "line": 82,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "16"
+          ],
+          "context": "padding: 16px 24px;"
+        },
+        {
+          "line": 83,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "14"
+          ],
+          "context": "font-size: 14px;"
+        },
+        {
+          "line": 93,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "12"
+          ],
+          "context": "self.project_wizard_btn.setFont(QFont(\"Segoe UI\", 12, QFont.Bold))"
+        },
+        {
+          "line": 94,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "60"
+          ],
+          "context": "self.project_wizard_btn.setMinimumHeight(60)"
+        },
+        {
+          "line": 102,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "16"
+          ],
+          "context": "padding: 16px 24px;"
+        },
+        {
+          "line": 103,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "14"
+          ],
+          "context": "font-size: 14px;"
+        },
+        {
+          "line": 113,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "12"
+          ],
+          "context": "self.project_importer_btn.setFont(QFont(\"Segoe UI\", 12, QFont.Bold))"
+        },
+        {
+          "line": 114,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "60"
+          ],
+          "context": "self.project_importer_btn.setMinimumHeight(60)"
+        },
+        {
+          "line": 122,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "16"
+          ],
+          "context": "padding: 16px 24px;"
+        },
+        {
+          "line": 123,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "14"
+          ],
+          "context": "font-size: 14px;"
+        },
+        {
+          "line": 141,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "20"
+          ],
+          "context": "padding: 20px;"
+        },
+        {
+          "line": 148,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "16"
+          ],
+          "context": "status_title.setFont(QFont(\"Segoe UI\", 16, QFont.Bold))"
+        },
+        {
+          "line": 153,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "14"
+          ],
+          "context": "self.status_label.setStyleSheet(\"color: #38A169; font-size: 14px;\")"
+        },
+        {
+          "line": 157,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "12"
+          ],
+          "context": "self.projects_summary_label.setStyleSheet(\"color: #718096; font-size: 12px;\")"
+        },
+        {
+          "line": 170,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "20"
+          ],
+          "context": "padding: 20px;"
+        },
+        {
+          "line": 177,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "16"
+          ],
+          "context": "info_title.setFont(QFont(\"Segoe UI\", 16, QFont.Bold))"
+        },
+        {
+          "line": 202,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "12"
+          ],
+          "context": "info_text.setStyleSheet(\"color: #4A5568; font-size: 12px; line-height: 1.5;\")"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/bootstrap_phase4.py",
+      "emojis": [
+        {
+          "line": 61,
+          "emoji": "🎉",
+          "context": "header_label = QLabel(\"🎉 PHASE 4 - DASHBOARD PRINCIPAL\")"
+        },
+        {
+          "line": 89,
+          "emoji": "📋",
+          "context": "info_title = QLabel(\"📋 Fonctionnalités Phase 4\")"
+        },
+        {
+          "line": 96,
+          "emoji": "✅",
+          "context": "\"✅ Dashboard principal avec interface moderne\","
+        },
+        {
+          "line": 97,
+          "emoji": "✅",
+          "context": "\"✅ Navigation latérale avec 5 modules\","
+        },
+        {
+          "line": 98,
+          "emoji": "✅",
+          "context": "\"✅ Sidebar avec informations projet et état système\","
+        },
+        {
+          "line": 99,
+          "emoji": "✅",
+          "context": "\"✅ Panels modulaires pour chaque module\","
+        },
+        {
+          "line": 100,
+          "emoji": "✅",
+          "context": "\"✅ Transition fluide entre modules\","
+        },
+        {
+          "line": 101,
+          "emoji": "✅",
+          "context": "\"✅ Interface maritime cohérente (OpenBridge)\","
+        },
+        {
+          "line": 102,
+          "emoji": "✅",
+          "context": "\"✅ Architecture MVC respectée\","
+        },
+        {
+          "line": 103,
+          "emoji": "✅",
+          "context": "\"✅ Intégration transparente avec Phase 3\""
+        },
+        {
+          "line": 129,
+          "emoji": "🚀",
+          "context": "controls_title = QLabel(\"🚀 Contrôles de Démonstration\")"
+        },
+        {
+          "line": 139,
+          "emoji": "📊",
+          "context": "self.open_dashboard_btn = QPushButton(\"📊 Ouvrir Dashboard\")"
+        },
+        {
+          "line": 159,
+          "emoji": "⚡",
+          "context": "self.simulate_btn = QPushButton(\"⚡ Simuler Activité Système\")"
+        },
+        {
+          "line": 179,
+          "emoji": "️",
+          "context": "self.info_btn = QPushButton(\"ℹ️ Informations Phase 4\")"
+        },
+        {
+          "line": 217,
+          "emoji": "📊",
+          "context": "status_title = QLabel(\"📊 Statut et Informations\")"
+        },
+        {
+          "line": 223,
+          "emoji": "🟢",
+          "context": "self.status_label = QLabel(\"🟢 Phase 4 prête - Dashboard disponible\")"
+        },
+        {
+          "line": 229,
+          "emoji": "🏗",
+          "context": "\"🏗️ Architecture: MVC avec panels modulaires\\n\""
+        },
+        {
+          "line": 229,
+          "emoji": "️",
+          "context": "\"🏗️ Architecture: MVC avec panels modulaires\\n\""
+        },
+        {
+          "line": 230,
+          "emoji": "🎨",
+          "context": "\"🎨 Design: Maritime OpenBridge cohérent\\n\""
+        },
+        {
+          "line": 231,
+          "emoji": "⚡",
+          "context": "\"⚡ Performance: < 300ms startup, < 100ms module switching\\n\""
+        },
+        {
+          "line": 232,
+          "emoji": "🧪",
+          "context": "\"🧪 Tests: Framework pytest-qt configuré\\n\""
+        },
+        {
+          "line": 233,
+          "emoji": "🔗",
+          "context": "\"🔗 Intégration: Phase 3 Project Manager connecté\""
+        },
+        {
+          "line": 265,
+          "emoji": "🔵",
+          "context": "self.status_label.setText(\"🔵 Dashboard ouvert - Module Dashboard actif\")"
+        },
+        {
+          "line": 280,
+          "emoji": "🟡",
+          "context": "self.status_label.setText(\"🟡 Simulation d'activité système démarrée\")"
+        },
+        {
+          "line": 281,
+          "emoji": "⏹",
+          "context": "self.simulate_btn.setText(\"⏹️ Arrêter Simulation\")"
+        },
+        {
+          "line": 281,
+          "emoji": "️",
+          "context": "self.simulate_btn.setText(\"⏹️ Arrêter Simulation\")"
+        },
+        {
+          "line": 295,
+          "emoji": "🟢",
+          "context": "self.status_label.setText(\"🟢 Simulation arrêtée\")"
+        },
+        {
+          "line": 296,
+          "emoji": "⚡",
+          "context": "self.simulate_btn.setText(\"⚡ Simuler Activité Système\")"
+        },
+        {
+          "line": 305,
+          "emoji": "🎉",
+          "context": "\"🎉 PHASE 4 COMPLÉTÉE AVEC SUCCÈS !\\n\\n\""
+        },
+        {
+          "line": 306,
+          "emoji": "✅",
+          "context": "\"✅ Dashboard principal opérationnel\\n\""
+        },
+        {
+          "line": 307,
+          "emoji": "✅",
+          "context": "\"✅ Navigation 5 modules fonctionnelle\\n\""
+        },
+        {
+          "line": 308,
+          "emoji": "✅",
+          "context": "\"✅ Interface maritime cohérente\\n\""
+        },
+        {
+          "line": 309,
+          "emoji": "✅",
+          "context": "\"✅ Architecture MVC respectée\\n\""
+        },
+        {
+          "line": 310,
+          "emoji": "✅",
+          "context": "\"✅ Intégration Phase 3 parfaite\\n\\n\""
+        },
+        {
+          "line": 311,
+          "emoji": "🚀",
+          "context": "\"🚀 Prêt pour Phase 5 (Calibration) !\""
+        },
+        {
+          "line": 317,
+          "emoji": "🟢",
+          "context": "self.status_label.setText(\"🟢 Phase 4 prête - Dashboard disponible\")"
+        },
+        {
+          "line": 344,
+          "emoji": "🟢",
+          "context": "QTimer.singleShot(1000, lambda: PHASE4_WINDOW.status_label.setText(\"🟢 Phase 4 prête - Dashboard disponible\"))"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 32,
+          "pattern": "setMinimumSize\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+          "values": [
+            [
+              "800",
+              "600"
+            ]
+          ],
+          "context": "self.setMinimumSize(800, 600)"
+        },
+        {
+          "line": 33,
+          "pattern": "resize\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+          "values": [
+            [
+              "1000",
+              "700"
+            ]
+          ],
+          "context": "self.resize(1000, 700)"
+        },
+        {
+          "line": 41,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "30"
+          ],
+          "context": "main_layout.setContentsMargins(30, 30, 30, 30)"
+        },
+        {
+          "line": 42,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "20"
+          ],
+          "context": "main_layout.setSpacing(20)"
+        },
+        {
+          "line": 62,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "24"
+          ],
+          "context": "header_label.setFont(QFont(\"Segoe UI\", 24, QFont.Bold))"
+        },
+        {
+          "line": 68,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "16"
+          ],
+          "context": "subtitle_label.setFont(QFont(\"Segoe UI\", 16))"
+        },
+        {
+          "line": 81,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "20"
+          ],
+          "context": "padding: 20px;"
+        },
+        {
+          "line": 86,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "15"
+          ],
+          "context": "info_layout.setSpacing(15)"
+        },
+        {
+          "line": 90,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "16"
+          ],
+          "context": "info_title.setFont(QFont(\"Segoe UI\", 16, QFont.Bold))"
+        },
+        {
+          "line": 108,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "12"
+          ],
+          "context": "feature_label.setStyleSheet(\"color: #2D3748; font-size: 12px;\")"
+        },
+        {
+          "line": 121,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "20"
+          ],
+          "context": "padding: 20px;"
+        },
+        {
+          "line": 126,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "15"
+          ],
+          "context": "controls_layout.setSpacing(15)"
+        },
+        {
+          "line": 130,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "16"
+          ],
+          "context": "controls_title.setFont(QFont(\"Segoe UI\", 16, QFont.Bold))"
+        },
+        {
+          "line": 136,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "15"
+          ],
+          "context": "buttons_layout.setSpacing(15)"
+        },
+        {
+          "line": 140,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "50"
+          ],
+          "context": "self.open_dashboard_btn.setMinimumHeight(50)"
+        },
+        {
+          "line": 147,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        },
+        {
+          "line": 149,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "14"
+          ],
+          "context": "font-size: 14px;"
+        },
+        {
+          "line": 160,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "50"
+          ],
+          "context": "self.simulate_btn.setMinimumHeight(50)"
+        },
+        {
+          "line": 167,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        },
+        {
+          "line": 169,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "14"
+          ],
+          "context": "font-size: 14px;"
+        },
+        {
+          "line": 180,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "50"
+          ],
+          "context": "self.info_btn.setMinimumHeight(50)"
+        },
+        {
+          "line": 187,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        },
+        {
+          "line": 189,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "14"
+          ],
+          "context": "font-size: 14px;"
+        },
+        {
+          "line": 209,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "20"
+          ],
+          "context": "padding: 20px;"
+        },
+        {
+          "line": 214,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "15"
+          ],
+          "context": "status_layout.setSpacing(15)"
+        },
+        {
+          "line": 218,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "16"
+          ],
+          "context": "status_title.setFont(QFont(\"Segoe UI\", 16, QFont.Bold))"
+        },
+        {
+          "line": 224,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "12"
+          ],
+          "context": "self.status_label.setStyleSheet(\"color: #2D3748; font-size: 12px;\")"
+        },
+        {
+          "line": 235,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "11"
+          ],
+          "context": "tech_info.setStyleSheet(\"color: #4A5568; font-size: 11px;\")"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/test_simple.py",
+      "emojis": [
+        {
+          "line": 32,
+          "emoji": "🧪",
+          "context": "print(\"🧪 Test 1: Design System\")"
+        },
+        {
+          "line": 35,
+          "emoji": "✅",
+          "context": "print(f\"✅ Couleurs chargées: {len(colors)} couleurs\")"
+        },
+        {
+          "line": 38,
+          "emoji": "🧪",
+          "context": "print(\"🧪 Test 2: Composants Modernes\")"
+        },
+        {
+          "line": 40,
+          "emoji": "✅",
+          "context": "print(\"✅ Cartes modernes chargées\")"
+        },
+        {
+          "line": 43,
+          "emoji": "✅",
+          "context": "print(\"✅ Boutons modernes chargés\")"
+        },
+        {
+          "line": 46,
+          "emoji": "✅",
+          "context": "print(\"✅ Sidebar moderne chargée\")"
+        },
+        {
+          "line": 49,
+          "emoji": "🧪",
+          "context": "print(\"🧪 Test 3: Création d'instances\")"
+        },
+        {
+          "line": 59,
+          "emoji": "✅",
+          "context": "print(\"✅ Instances créées avec succès\")"
+        },
+        {
+          "line": 63,
+          "emoji": "✅",
+          "context": "print(\"✅ Fenêtre affichée\")"
+        },
+        {
+          "line": 68,
+          "emoji": "❌",
+          "context": "print(f\"❌ Erreur lors du test: {e}\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 21,
+          "pattern": "resize\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+          "values": [
+            [
+              "800",
+              "600"
+            ]
+          ],
+          "context": "window.resize(800, 600)"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/components/navigation_sidebar.py",
+      "emojis": [
+        {
+          "line": 83,
+          "emoji": "📋",
+          "context": "project_group = QGroupBox(\"📋 Informations Projet\")"
+        },
+        {
+          "line": 122,
+          "emoji": "🧭",
+          "context": "navigation_group = QGroupBox(\"🧭 Navigation Modules\")"
+        },
+        {
+          "line": 139,
+          "emoji": "📋",
+          "context": "(\"dashboard\", \"📋 Dashboard\", \"Vue d'ensemble du projet\", COLORS['success']),"
+        },
+        {
+          "line": 140,
+          "emoji": "⚙",
+          "context": "(\"calibration\", \"⚙️ Calibration\", \"Calibration des sondes\", COLORS['warning']),"
+        },
+        {
+          "line": 140,
+          "emoji": "️",
+          "context": "(\"calibration\", \"⚙️ Calibration\", \"Calibration des sondes\", COLORS['warning']),"
+        },
+        {
+          "line": 141,
+          "emoji": "📊",
+          "context": "(\"acquisition\", \"📊 Acquisition\", \"Acquisition temps réel\", COLORS['primary']),"
+        },
+        {
+          "line": 142,
+          "emoji": "📈",
+          "context": "(\"stats\", \"📈 Statistique\", \"Analyse statistique\", COLORS['secondary']),"
+        },
+        {
+          "line": 143,
+          "emoji": "🔬",
+          "context": "(\"advanced\", \"🔬 Avancée\", \"Analyses avancées (Goda, FFT)\", COLORS['warning']),"
+        },
+        {
+          "line": 144,
+          "emoji": "📤",
+          "context": "(\"export\", \"📤 Export\", \"Export des résultats\", COLORS['success'])"
+        },
+        {
+          "line": 218,
+          "emoji": "💡",
+          "context": "status_group = QGroupBox(\"💡 État Système\")"
+        },
+        {
+          "line": 234,
+          "emoji": "🔴",
+          "context": "self.sensors_status_label = QLabel(\"• Capteurs: 🔴 Non connectés\")"
+        },
+        {
+          "line": 239,
+          "emoji": "🔴",
+          "context": "self.acquisition_status_label = QLabel(\"• Acquisition: 🔴 Arrêtée\")"
+        },
+        {
+          "line": 244,
+          "emoji": "🔴",
+          "context": "self.calibration_status_label = QLabel(\"• Calibration: 🔴 Non effectuée\")"
+        },
+        {
+          "line": 249,
+          "emoji": "🔴",
+          "context": "self.analysis_status_label = QLabel(\"• Analyse: 🔴 Aucune donnée\")"
+        },
+        {
+          "line": 257,
+          "emoji": "←",
+          "context": "return_button = QPushButton(\"← Retour au Gestionnaire de Projets\")"
+        },
+        {
+          "line": 315,
+          "emoji": "✅",
+          "context": "self.sensors_status_label.setText(\"• Capteurs: ✅ Connectés\")"
+        },
+        {
+          "line": 318,
+          "emoji": "🔶",
+          "context": "self.sensors_status_label.setText(\"• Capteurs: 🔶 Attention\")"
+        },
+        {
+          "line": 321,
+          "emoji": "🔴",
+          "context": "self.sensors_status_label.setText(\"• Capteurs: 🔴 Non connectés\")"
+        },
+        {
+          "line": 327,
+          "emoji": "✅",
+          "context": "self.acquisition_status_label.setText(\"• Acquisition: ✅ En cours\")"
+        },
+        {
+          "line": 330,
+          "emoji": "🔶",
+          "context": "self.acquisition_status_label.setText(\"• Acquisition: 🔶 En pause\")"
+        },
+        {
+          "line": 333,
+          "emoji": "🔴",
+          "context": "self.acquisition_status_label.setText(\"• Acquisition: 🔴 Arrêtée\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 58,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "10"
+          ],
+          "context": "padding: 10px;"
+        },
+        {
+          "line": 63,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "5"
+          ],
+          "context": "header_layout.setSpacing(5)"
+        },
+        {
+          "line": 67,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "20"
+          ],
+          "context": "logo_label.setFont(QFont(\"Segoe UI\", 20, QFont.Bold))"
+        },
+        {
+          "line": 74,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "10"
+          ],
+          "context": "subtitle_label.setFont(QFont(\"Segoe UI\", 10))"
+        },
+        {
+          "line": 96,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "8"
+          ],
+          "context": "project_layout.setSpacing(8)"
+        },
+        {
+          "line": 135,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "8"
+          ],
+          "context": "navigation_layout.setSpacing(8)"
+        },
+        {
+          "line": 178,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px;"
+        },
+        {
+          "line": 196,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "8"
+          ],
+          "context": "button_layout.setContentsMargins(8, 8, 8, 8)"
+        },
+        {
+          "line": 197,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "2"
+          ],
+          "context": "button_layout.setSpacing(2)"
+        },
+        {
+          "line": 201,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "11"
+          ],
+          "context": "name_label.setFont(QFont(\"Segoe UI\", 11, QFont.Bold))"
+        },
+        {
+          "line": 207,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "9"
+          ],
+          "context": "desc_label.setFont(QFont(\"Segoe UI\", 9))"
+        },
+        {
+          "line": 231,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "8"
+          ],
+          "context": "status_layout.setSpacing(8)"
+        },
+        {
+          "line": 258,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "40"
+          ],
+          "context": "return_button.setMinimumHeight(40)"
+        },
+        {
+          "line": 265,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/components/signal_adapter.py",
+      "emojis": [
+        {
+          "line": 48,
+          "emoji": "↔",
+          "context": "\"\"\"Adaptateur UI ↔ Core pour le SignalBus existant."
+        },
+        {
+          "line": 79,
+          "emoji": "→",
+          "context": "# Traitement terminé → résultats d'analyse"
+        },
+        {
+          "line": 97,
+          "emoji": "→",
+          "context": "# ---------- Handlers Core → UI ----------"
+        },
+        {
+          "line": 122,
+          "emoji": "→",
+          "context": "# ---------- UI → Core helpers ----------"
+        }
+      ],
+      "dimensions": [],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/acquisition_panel.py",
+      "emojis": [
+        {
+          "line": 10,
+          "emoji": "📊",
+          "context": "module_title=\"📊 Module Acquisition\","
+        }
+      ],
+      "dimensions": [],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/advanced_panel.py",
+      "emojis": [
+        {
+          "line": 10,
+          "emoji": "🔬",
+          "context": "module_title=\"🔬 Module Analyse Avancée\","
+        }
+      ],
+      "dimensions": [],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/base_module_panel.py",
+      "emojis": [
+        {
+          "line": 79,
+          "emoji": "📋",
+          "context": "content_group = QGroupBox(\"📋 Contenu du Module\")"
+        },
+        {
+          "line": 95,
+          "emoji": "🚧",
+          "context": "coming_soon_label = QLabel(\"🚧 Module en cours de développement\")"
+        },
+        {
+          "line": 137,
+          "emoji": "💡",
+          "context": "status_group = QGroupBox(\"💡 Informations et Actions\")"
+        },
+        {
+          "line": 154,
+          "emoji": "📌",
+          "context": "f\"📌 Module: {self.module_name}\\n\""
+        },
+        {
+          "line": 155,
+          "emoji": "🎯",
+          "context": "f\"🎯 Phase de développement: Phase 5+\\n\""
+        },
+        {
+          "line": 156,
+          "emoji": "⏰",
+          "context": "f\"⏰ Disponibilité estimée: Prochaine itération\""
+        },
+        {
+          "line": 167,
+          "emoji": "🎬",
+          "context": "demo_btn = QPushButton(\"🎬 Démo Module\")"
+        },
+        {
+          "line": 186,
+          "emoji": "❓",
+          "context": "help_btn = QPushButton(\"❓ Aide\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 28,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "20"
+          ],
+          "context": "main_layout.setContentsMargins(20, 20, 20, 20)"
+        },
+        {
+          "line": 29,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "20"
+          ],
+          "context": "main_layout.setSpacing(20)"
+        },
+        {
+          "line": 53,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "15"
+          ],
+          "context": "padding: 15px;"
+        },
+        {
+          "line": 58,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "8"
+          ],
+          "context": "header_layout.setSpacing(8)"
+        },
+        {
+          "line": 62,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "20"
+          ],
+          "context": "title_label.setFont(QFont(\"Segoe UI\", 20, QFont.Bold))"
+        },
+        {
+          "line": 69,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "12"
+          ],
+          "context": "desc_label.setFont(QFont(\"Segoe UI\", 12))"
+        },
+        {
+          "line": 92,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "15"
+          ],
+          "context": "content_layout.setSpacing(15)"
+        },
+        {
+          "line": 96,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "16"
+          ],
+          "context": "coming_soon_label.setFont(QFont(\"Segoe UI\", 16, QFont.Bold))"
+        },
+        {
+          "line": 150,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "15"
+          ],
+          "context": "status_layout.setSpacing(15)"
+        },
+        {
+          "line": 168,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "40"
+          ],
+          "context": "demo_btn.setMinimumHeight(40)"
+        },
+        {
+          "line": 175,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        },
+        {
+          "line": 187,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "40"
+          ],
+          "context": "help_btn.setMinimumHeight(40)"
+        },
+        {
+          "line": 194,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/calibration_panel.py",
+      "emojis": [
+        {
+          "line": 17,
+          "emoji": "⚙",
+          "context": "module_title=\"⚙️ Module Calibration\","
+        },
+        {
+          "line": 17,
+          "emoji": "️",
+          "context": "module_title=\"⚙️ Module Calibration\","
+        }
+      ],
+      "dimensions": [],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/export_panel.py",
+      "emojis": [
+        {
+          "line": 10,
+          "emoji": "📤",
+          "context": "module_title=\"📤 Module Export\","
+        }
+      ],
+      "dimensions": [],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/project_dashboard_panel.py",
+      "emojis": [
+        {
+          "line": 80,
+          "emoji": "📊",
+          "context": "title_label = QLabel(\"📊 Dashboard Projet\")"
+        },
+        {
+          "line": 96,
+          "emoji": "📋",
+          "context": "details_group = QGroupBox(\"📋 Détails du Projet\")"
+        },
+        {
+          "line": 147,
+          "emoji": "⚙",
+          "context": "metrics_group = QGroupBox(\"⚙️ Métriques Système\")"
+        },
+        {
+          "line": 147,
+          "emoji": "️",
+          "context": "metrics_group = QGroupBox(\"⚙️ Métriques Système\")"
+        },
+        {
+          "line": 165,
+          "emoji": "🔴",
+          "context": "self.sensors_status = QLabel(\"🔴 Non connectés\")"
+        },
+        {
+          "line": 171,
+          "emoji": "🔴",
+          "context": "self.acquisition_status = QLabel(\"🔴 Arrêtée\")"
+        },
+        {
+          "line": 177,
+          "emoji": "🔴",
+          "context": "self.calibration_status = QLabel(\"🔴 Non effectuée\")"
+        },
+        {
+          "line": 183,
+          "emoji": "🔴",
+          "context": "self.analysis_status = QLabel(\"🔴 Aucune donnée\")"
+        },
+        {
+          "line": 210,
+          "emoji": "📝",
+          "context": "activity_group = QGroupBox(\"📝 Activité Récente\")"
+        },
+        {
+          "line": 227,
+          "emoji": "🕐",
+          "context": "\"🕐 14:30 - Projet créé et ouvert\","
+        },
+        {
+          "line": 228,
+          "emoji": "🕐",
+          "context": "\"🕐 14:31 - Interface dashboard initialisée\","
+        },
+        {
+          "line": 229,
+          "emoji": "🕐",
+          "context": "\"🕐 14:32 - Navigation modules configurée\","
+        },
+        {
+          "line": 230,
+          "emoji": "🕐",
+          "context": "\"🕐 14:33 - Métriques système affichées\""
+        },
+        {
+          "line": 249,
+          "emoji": "🚀",
+          "context": "shortcuts_group = QGroupBox(\"🚀 Accès Rapide aux Modules\")"
+        },
+        {
+          "line": 266,
+          "emoji": "⚙",
+          "context": "(\"⚙️ Calibration\", \"calibration\", COLORS['warning']),"
+        },
+        {
+          "line": 266,
+          "emoji": "️",
+          "context": "(\"⚙️ Calibration\", \"calibration\", COLORS['warning']),"
+        },
+        {
+          "line": 267,
+          "emoji": "📊",
+          "context": "(\"📊 Acquisition\", \"acquisition\", COLORS['primary']),"
+        },
+        {
+          "line": 268,
+          "emoji": "📈",
+          "context": "(\"📈 Statistique\", \"stats\", COLORS['secondary']),"
+        },
+        {
+          "line": 269,
+          "emoji": "🔬",
+          "context": "(\"🔬 Avancée\", \"advanced\", COLORS['warning']),"
+        },
+        {
+          "line": 270,
+          "emoji": "📤",
+          "context": "(\"📤 Export\", \"export\", COLORS['success'])"
+        },
+        {
+          "line": 348,
+          "emoji": "📋",
+          "context": "details_group = QGroupBox(\"📋 Détails du Projet\")"
+        },
+        {
+          "line": 369,
+          "emoji": "⚙",
+          "context": "metrics_group = QGroupBox(\"⚙️ Métriques Système\")"
+        },
+        {
+          "line": 369,
+          "emoji": "️",
+          "context": "metrics_group = QGroupBox(\"⚙️ Métriques Système\")"
+        },
+        {
+          "line": 375,
+          "emoji": "🔴",
+          "context": "self.sensors_status = QLabel(\"🔴 Non connectés\")"
+        },
+        {
+          "line": 376,
+          "emoji": "🔴",
+          "context": "self.acquisition_status = QLabel(\"🔴 Arrêtée\")"
+        },
+        {
+          "line": 377,
+          "emoji": "🔴",
+          "context": "self.calibration_status = QLabel(\"🔴 Non effectuée\")"
+        },
+        {
+          "line": 378,
+          "emoji": "🔴",
+          "context": "self.analysis_status = QLabel(\"🔴 Aucune donnée\")"
+        },
+        {
+          "line": 407,
+          "emoji": "📝",
+          "context": "activity_group = QGroupBox(\"📝 Activité Récente\")"
+        },
+        {
+          "line": 417,
+          "emoji": "🚀",
+          "context": "shortcuts_group = QGroupBox(\"🚀 Accès Rapide\")"
+        },
+        {
+          "line": 421,
+          "emoji": "⚙",
+          "context": "(\"⚙️ Calibration\", COLORS['warning']),"
+        },
+        {
+          "line": 421,
+          "emoji": "️",
+          "context": "(\"⚙️ Calibration\", COLORS['warning']),"
+        },
+        {
+          "line": 422,
+          "emoji": "📊",
+          "context": "(\"📊 Acquisition\", COLORS['primary']),"
+        },
+        {
+          "line": 423,
+          "emoji": "📈",
+          "context": "(\"📈 Statistique\", COLORS['secondary']),"
+        },
+        {
+          "line": 424,
+          "emoji": "🔬",
+          "context": "(\"🔬 Avancée\", COLORS['warning']),"
+        },
+        {
+          "line": 425,
+          "emoji": "📤",
+          "context": "(\"📤 Export\", COLORS['success']),"
+        },
+        {
+          "line": 464,
+          "emoji": "🔴",
+          "context": "if random.random() < 0.3 and self.sensors_status.text() == \"🔴 Non connectés\":"
+        },
+        {
+          "line": 465,
+          "emoji": "✅",
+          "context": "self.sensors_status.setText(\"✅ Connectés\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 66,
+          "pattern": "setFixedHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "60"
+          ],
+          "context": "header_frame.setFixedHeight(60)"
+        },
+        {
+          "line": 72,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "6"
+          ],
+          "context": "padding: 6px;"
+        },
+        {
+          "line": 77,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "8"
+          ],
+          "context": "header_layout.setContentsMargins(8, 4, 8, 4)"
+        },
+        {
+          "line": 78,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "8"
+          ],
+          "context": "header_layout.setSpacing(8)"
+        },
+        {
+          "line": 81,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "14"
+          ],
+          "context": "title_label.setFont(QFont(\"Segoe UI\", 14, QFont.Bold))"
+        },
+        {
+          "line": 85,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "11"
+          ],
+          "context": "self.datetime_label.setFont(QFont(\"Segoe UI\", 11))"
+        },
+        {
+          "line": 109,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "15"
+          ],
+          "context": "details_layout.setSpacing(15)"
+        },
+        {
+          "line": 138,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "5"
+          ],
+          "context": "padding: 5px;"
+        },
+        {
+          "line": 160,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "15"
+          ],
+          "context": "metrics_layout.setSpacing(15)"
+        },
+        {
+          "line": 223,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "10"
+          ],
+          "context": "activity_layout.setSpacing(10)"
+        },
+        {
+          "line": 238,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "5"
+          ],
+          "context": "padding: 5px;"
+        },
+        {
+          "line": 262,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "15"
+          ],
+          "context": "shortcuts_layout.setSpacing(15)"
+        },
+        {
+          "line": 278,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "50"
+          ],
+          "context": "shortcut_btn.setMinimumHeight(50)"
+        },
+        {
+          "line": 285,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        },
+        {
+          "line": 287,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "12"
+          ],
+          "context": "font-size: 12px;"
+        },
+        {
+          "line": 363,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "4"
+          ],
+          "context": "v = QLabel(value); v.setFixedHeight(UGS.get_height_sequence()['label']); v.setStyleSheet(f\"background-color: {COLORS['surface']}; padding: 4px 8px; border-radius: 4px;\")"
+        },
+        {
+          "line": 412,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "4"
+          ],
+          "context": "lab.setStyleSheet(f\"color: {COLORS['text_secondary']}; background-color: {COLORS['surface']}; padding: 4px 8px; border-radius: 4px;\")"
+        },
+        {
+          "line": 431,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "11"
+          ],
+          "context": "QPushButton {{ background-color: {color}; color: white; border: none; border-radius: 6px; font-weight: bold; font-size: 11px; }}"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/stats_panel.py",
+      "emojis": [
+        {
+          "line": 10,
+          "emoji": "📈",
+          "context": "module_title=\"📈 Module Analyse Statistique\","
+        }
+      ],
+      "dimensions": [],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/resources/modern_design_system.py",
+      "emojis": [],
+      "dimensions": [
+        {
+          "line": 145,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "16"
+          ],
+          "context": "font-size: 16px;"
+        },
+        {
+          "line": 147,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "12"
+          ],
+          "context": "padding: 12px 24px;"
+        },
+        {
+          "line": 165,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "16"
+          ],
+          "context": "font-size: 16px;"
+        },
+        {
+          "line": 167,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "10"
+          ],
+          "context": "padding: 10px 22px;"
+        },
+        {
+          "line": 182,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "14"
+          ],
+          "context": "font-size: 14px;"
+        },
+        {
+          "line": 184,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        },
+        {
+          "line": 200,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "16"
+          ],
+          "context": "font-size: 16px;"
+        },
+        {
+          "line": 202,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "12"
+          ],
+          "context": "padding: 12px 24px;"
+        },
+        {
+          "line": 222,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "24"
+          ],
+          "context": "padding: 24px;"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/windows/main_dashboard.py",
+      "emojis": [],
+      "dimensions": [
+        {
+          "line": 42,
+          "pattern": "setMinimumSize\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+          "values": [
+            [
+              "1200",
+              "800"
+            ]
+          ],
+          "context": "self.setMinimumSize(1200, 800)"
+        },
+        {
+          "line": 51,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "main_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 52,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "0"
+          ],
+          "context": "main_layout.setSpacing(0)"
+        },
+        {
+          "line": 81,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "20"
+          ],
+          "context": "self.content_layout.setContentsMargins(20, 20, 20, 20)"
+        },
+        {
+          "line": 82,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "20"
+          ],
+          "context": "self.content_layout.setSpacing(20)"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/windows/modern_main_dashboard.py",
+      "emojis": [
+        {
+          "line": 248,
+          "emoji": "⚙",
+          "context": "settings_btn = ModernButton(\"⚙️\", \"ghost\", \"sm\")"
+        },
+        {
+          "line": 248,
+          "emoji": "️",
+          "context": "settings_btn = ModernButton(\"⚙️\", \"ghost\", \"sm\")"
+        },
+        {
+          "line": 249,
+          "emoji": "❓",
+          "context": "help_btn = ModernButton(\"❓\", \"ghost\", \"sm\")"
+        },
+        {
+          "line": 250,
+          "emoji": "👤",
+          "context": "profile_btn = ModernButton(\"👤\", \"ghost\", \"sm\")"
+        },
+        {
+          "line": 459,
+          "emoji": "□",
+          "context": "icon=\"□\","
+        },
+        {
+          "line": 468,
+          "emoji": "◐",
+          "context": "icon=\"◐\","
+        },
+        {
+          "line": 477,
+          "emoji": "▤",
+          "context": "icon=\"▤\","
+        },
+        {
+          "line": 486,
+          "emoji": "⚬",
+          "context": "icon=\"⚬\","
+        },
+        {
+          "line": 533,
+          "emoji": "🔄",
+          "context": "\"🔄 Interface moderne initialisée\","
+        },
+        {
+          "line": 534,
+          "emoji": "📱",
+          "context": "\"📱 Dashboard configuré\","
+        },
+        {
+          "line": 535,
+          "emoji": "🎨",
+          "context": "\"🎨 Thème 2025 appliqué\","
+        },
+        {
+          "line": 536,
+          "emoji": "⚡",
+          "context": "\"⚡ Composants optimisés\""
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 46,
+          "pattern": "resize\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+          "values": [
+            [
+              "1440",
+              "900"
+            ]
+          ],
+          "context": "self.resize(1440, 900)"
+        },
+        {
+          "line": 47,
+          "pattern": "setMinimumSize\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+          "values": [
+            [
+              "1080",
+              "675"
+            ]
+          ],
+          "context": "self.setMinimumSize(1080, 675)"
+        },
+        {
+          "line": 63,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "self.main_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 64,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "0"
+          ],
+          "context": "self.main_layout.setSpacing(0)"
+        },
+        {
+          "line": 93,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "self.content_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 94,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "0"
+          ],
+          "context": "self.content_layout.setSpacing(0)"
+        },
+        {
+          "line": 131,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "header_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 137,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "logo_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 183,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "project_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 226,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "default_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 244,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "actions_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 245,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "8"
+          ],
+          "context": "actions_layout.setSpacing(8)"
+        },
+        {
+          "line": 302,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "14"
+          ],
+          "context": "font-size: 14px;"
+        },
+        {
+          "line": 303,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        },
+        {
+          "line": 307,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        },
+        {
+          "line": 317,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 0px;"
+        },
+        {
+          "line": 320,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 24px;"
+        },
+        {
+          "line": 384,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "12"
+          ],
+          "context": "font-size: 12px;"
+        },
+        {
+          "line": 385,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        },
+        {
+          "line": 435,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "18"
+          ],
+          "context": "layout.setContentsMargins(18, 18, 18, 18)"
+        },
+        {
+          "line": 436,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "18"
+          ],
+          "context": "layout.setSpacing(18)"
+        },
+        {
+          "line": 453,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "16"
+          ],
+          "context": "info_cards_layout.setSpacing(16)"
+        },
+        {
+          "line": 495,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "16"
+          ],
+          "context": "action_cards_layout.setSpacing(16)"
+        },
+        {
+          "line": 529,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "activity_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 530,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "8"
+          ],
+          "context": "activity_layout.setSpacing(8)"
+        },
+        {
+          "line": 542,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "4"
+          ],
+          "context": "activity_label.setStyleSheet(f\"color: {ModernDesignSystem.get_color_palette()['text_secondary']}; padding: 4px 0px;\")"
+        },
+        {
+          "line": 555,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "24"
+          ],
+          "context": "layout.setSpacing(24)"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/windows/modern_splash_screen.py",
+      "emojis": [
+        {
+          "line": 29,
+          "emoji": "🚀",
+          "context": "(10, \"🚀 Initialisation du système...\"),"
+        },
+        {
+          "line": 30,
+          "emoji": "⚙",
+          "context": "(25, \"⚙️ Chargement des modules core...\"),"
+        },
+        {
+          "line": 30,
+          "emoji": "️",
+          "context": "(25, \"⚙️ Chargement des modules core...\"),"
+        },
+        {
+          "line": 31,
+          "emoji": "🎨",
+          "context": "(40, \"🎨 Configuration de l'interface moderne...\"),"
+        },
+        {
+          "line": 32,
+          "emoji": "🔌",
+          "context": "(60, \"🔌 Connexion des capteurs...\"),"
+        },
+        {
+          "line": 33,
+          "emoji": "📊",
+          "context": "(80, \"📊 Initialisation des visualisations...\"),"
+        },
+        {
+          "line": 34,
+          "emoji": "✅",
+          "context": "(100, \"✅ CHNeoWave prêt !\")"
+        },
+        {
+          "line": 105,
+          "emoji": "🌊",
+          "context": "logo_label = QLabel(\"🌊 CHNeoWave\")"
+        },
+        {
+          "line": 145,
+          "emoji": "🚀",
+          "context": "self.loading_label = QLabel(\"🚀 Initialisation du système...\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 71,
+          "pattern": "resize\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+          "values": [
+            [
+              "800",
+              "500"
+            ]
+          ],
+          "context": "self.resize(800, 500)"
+        },
+        {
+          "line": 96,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "50"
+          ],
+          "context": "main_layout.setContentsMargins(50, 50, 50, 50)"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/windows/project_importer.py",
+      "emojis": [
+        {
+          "line": 138,
+          "emoji": "📁",
+          "context": "header_label = QLabel(\"📁 Importer un Projet Existant\")"
+        },
+        {
+          "line": 169,
+          "emoji": "📁",
+          "context": "self.select_file_btn = QPushButton(\"📁 Parcourir...\")"
+        },
+        {
+          "line": 273,
+          "emoji": "❌",
+          "context": "self.cancel_btn = QPushButton(\"❌ Annuler\")"
+        },
+        {
+          "line": 291,
+          "emoji": "📥",
+          "context": "self.import_btn = QPushButton(\"📥 Importer le Projet\")"
+        },
+        {
+          "line": 349,
+          "emoji": "✅",
+          "context": "self.validation_status.setText(\"✅ Fichier valide - Prêt à l'import\")"
+        },
+        {
+          "line": 353,
+          "emoji": "❌",
+          "context": "self.validation_status.setText(\"❌ Fichier invalide - Métadonnées incomplètes\")"
+        },
+        {
+          "line": 355,
+          "emoji": "❌",
+          "context": "self.metadata_text.setPlainText(\"❌ Ce fichier ne contient pas les métadonnées requises pour un projet CHNeoWave valide.\")"
+        },
+        {
+          "line": 360,
+          "emoji": "❌",
+          "context": "self.validation_status.setText(f\"❌ Erreur: {error_message}\")"
+        },
+        {
+          "line": 362,
+          "emoji": "❌",
+          "context": "self.metadata_text.setPlainText(f\"❌ Erreur lors de la validation:\\n{error_message}\")"
+        },
+        {
+          "line": 366,
+          "emoji": "📋",
+          "context": "metadata_text = \"📋 MÉTADONNÉES DU PROJET\\n\\n\""
+        },
+        {
+          "line": 369,
+          "emoji": "🏷",
+          "context": "metadata_text += \"🏷️ INFORMATIONS GÉNÉRALES\\n\""
+        },
+        {
+          "line": 369,
+          "emoji": "️",
+          "context": "metadata_text += \"🏷️ INFORMATIONS GÉNÉRALES\\n\""
+        },
+        {
+          "line": 379,
+          "emoji": "⚙",
+          "context": "metadata_text += \"⚙️ CONFIGURATION TECHNIQUE\\n\""
+        },
+        {
+          "line": 379,
+          "emoji": "️",
+          "context": "metadata_text += \"⚙️ CONFIGURATION TECHNIQUE\\n\""
+        },
+        {
+          "line": 385,
+          "emoji": "📊",
+          "context": "metadata_text += \"📊 DONNÉES\\n\""
+        },
+        {
+          "line": 390,
+          "emoji": "💾",
+          "context": "metadata_text += \"💾 INFORMATIONS FICHIER\\n\""
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 114,
+          "pattern": "resize\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+          "values": [
+            [
+              "800",
+              "600"
+            ]
+          ],
+          "context": "self.resize(800, 600)"
+        },
+        {
+          "line": 118,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "20"
+          ],
+          "context": "layout.setSpacing(20)"
+        },
+        {
+          "line": 119,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "30"
+          ],
+          "context": "layout.setContentsMargins(30, 30, 30, 30)"
+        },
+        {
+          "line": 139,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "18"
+          ],
+          "context": "header_label.setFont(QFont(\"Segoe UI\", 18, QFont.Bold))"
+        },
+        {
+          "line": 176,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        },
+        {
+          "line": 219,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px;"
+        },
+        {
+          "line": 280,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "10"
+          ],
+          "context": "padding: 10px 20px;"
+        },
+        {
+          "line": 299,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "10"
+          ],
+          "context": "padding: 10px 20px;"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/windows/project_manager.py",
+      "emojis": [
+        {
+          "line": 140,
+          "emoji": "➕",
+          "context": "new_project_btn = QPushButton(\"➕ Créer Nouveau Projet\")"
+        },
+        {
+          "line": 160,
+          "emoji": "📁",
+          "context": "import_btn = QPushButton(\"📁 Importer Projet Existant\")"
+        },
+        {
+          "line": 184,
+          "emoji": "📋",
+          "context": "section_title = QLabel(\"📋 Projets Récents\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 36,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "12"
+          ],
+          "context": "padding: 12px;"
+        },
+        {
+          "line": 49,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "14"
+          ],
+          "context": "name_label.setFont(QFont(\"Segoe UI\", 14, QFont.Bold))"
+        },
+        {
+          "line": 69,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "120"
+          ],
+          "context": "self.setMinimumHeight(120)"
+        },
+        {
+          "line": 91,
+          "pattern": "resize\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+          "values": [
+            [
+              "900",
+              "700"
+            ]
+          ],
+          "context": "self.resize(900, 700)"
+        },
+        {
+          "line": 96,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "20"
+          ],
+          "context": "main_layout.setSpacing(20)"
+        },
+        {
+          "line": 97,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "30"
+          ],
+          "context": "main_layout.setContentsMargins(30, 30, 30, 30)"
+        },
+        {
+          "line": 120,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "32"
+          ],
+          "context": "logo_label.setFont(QFont(\"Segoe UI\", 32, QFont.Bold))"
+        },
+        {
+          "line": 128,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "14"
+          ],
+          "context": "subtitle_label.setFont(QFont(\"Segoe UI\", 14))"
+        },
+        {
+          "line": 137,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "20"
+          ],
+          "context": "buttons_layout.setSpacing(20)"
+        },
+        {
+          "line": 141,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "12"
+          ],
+          "context": "new_project_btn.setFont(QFont(\"Segoe UI\", 12, QFont.Bold))"
+        },
+        {
+          "line": 142,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "60"
+          ],
+          "context": "new_project_btn.setMinimumHeight(60)"
+        },
+        {
+          "line": 150,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "16"
+          ],
+          "context": "padding: 16px 24px;"
+        },
+        {
+          "line": 151,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "14"
+          ],
+          "context": "font-size: 14px;"
+        },
+        {
+          "line": 161,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "12"
+          ],
+          "context": "import_btn.setFont(QFont(\"Segoe UI\", 12, QFont.Bold))"
+        },
+        {
+          "line": 162,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "60"
+          ],
+          "context": "import_btn.setMinimumHeight(60)"
+        },
+        {
+          "line": 170,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "16"
+          ],
+          "context": "padding: 16px 24px;"
+        },
+        {
+          "line": 171,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "14"
+          ],
+          "context": "font-size: 14px;"
+        },
+        {
+          "line": 185,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "16"
+          ],
+          "context": "section_title.setFont(QFont(\"Segoe UI\", 16, QFont.Bold))"
+        },
+        {
+          "line": 205,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "8"
+          ],
+          "context": "self.projects_layout.setSpacing(8)"
+        },
+        {
+          "line": 206,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "16"
+          ],
+          "context": "self.projects_layout.setContentsMargins(16, 16, 16, 16)"
+        },
+        {
+          "line": 299,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "40"
+          ],
+          "context": "padding: 40px;"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/windows/project_wizard.py",
+      "emojis": [
+        {
+          "line": 295,
+          "emoji": "⚠",
+          "context": "note_label = QLabel(\"⚠️ Note: Une fois créé, le projet sera automatiquement ouvert dans CHNeoWave.\")"
+        },
+        {
+          "line": 295,
+          "emoji": "️",
+          "context": "note_label = QLabel(\"⚠️ Note: Une fois créé, le projet sera automatiquement ouvert dans CHNeoWave.\")"
+        },
+        {
+          "line": 314,
+          "emoji": "📋",
+          "context": "summary = f\"\"\"📋 INFORMATIONS GÉNÉRALES"
+        },
+        {
+          "line": 320,
+          "emoji": "⚙",
+          "context": "⚙️ CONFIGURATION TECHNIQUE"
+        },
+        {
+          "line": 320,
+          "emoji": "️",
+          "context": "⚙️ CONFIGURATION TECHNIQUE"
+        },
+        {
+          "line": 326,
+          "emoji": "🔧",
+          "context": "🔧 OPTIONS AVANCÉES"
+        },
+        {
+          "line": 422,
+          "emoji": "✅",
+          "context": "validation_page.status_label.setText(\"✅ Projet créé avec succès !\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 61,
+          "pattern": "setMinimumWidth\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "300"
+          ],
+          "context": "self.name_edit.setMinimumWidth(300)"
+        },
+        {
+          "line": 263,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "12"
+          ],
+          "context": "self.summary_label.setFont(QFont(\"Segoe UI\", 12, QFont.Bold))"
+        },
+        {
+          "line": 276,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px;"
+        },
+        {
+          "line": 299,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "10"
+          ],
+          "context": "padding: 10px;"
+        },
+        {
+          "line": 347,
+          "pattern": "resize\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+          "values": [
+            [
+              "700",
+              "600"
+            ]
+          ],
+          "context": "self.resize(700, 600)"
+        },
+        {
+          "line": 379,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "8"
+          ],
+          "context": "padding: 8px 16px;"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/windows/splash_screen.py",
+      "emojis": [],
+      "dimensions": [
+        {
+          "line": 109,
+          "pattern": "QFont\\(.*?,\\s*(\\d+)",
+          "values": [
+            "24"
+          ],
+          "context": "font = QFont(\"Segoe UI\", 24, QFont.Bold)"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/components/modern/modern_button.py",
+      "emojis": [],
+      "dimensions": [
+        {
+          "line": 312,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "2"
+          ],
+          "context": "padding: 2px 6px;"
+        },
+        {
+          "line": 313,
+          "pattern": "font-size:\\s*(\\d+)px",
+          "values": [
+            "10"
+          ],
+          "context": "font-size: 10px;"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/components/modern/modern_card.py",
+      "emojis": [
+        {
+          "line": 390,
+          "emoji": "📊",
+          "context": "chart_placeholder = QLabel(\"📊 Graphique\")"
+        },
+        {
+          "line": 409,
+          "emoji": "🔄",
+          "context": "refresh_btn = ModernButton(\"🔄\", \"ghost\", \"sm\")"
+        },
+        {
+          "line": 410,
+          "emoji": "📤",
+          "context": "export_btn = ModernButton(\"📤\", \"ghost\", \"sm\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 24,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "120"
+          ],
+          "context": "self.setMinimumHeight(120)"
+        },
+        {
+          "line": 116,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "self.main_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 137,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "header_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 311,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "footer_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 350,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "content_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 396,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "20"
+          ],
+          "context": "padding: 20px;"
+        },
+        {
+          "line": 405,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "actions_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 406,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "8"
+          ],
+          "context": "actions_layout.setSpacing(8)"
+        },
+        {
+          "line": 487,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "content_layout.setContentsMargins(0, 0, 0, 0)"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/components/modern/modern_sidebar.py",
+      "emojis": [
+        {
+          "line": 105,
+          "emoji": "□",
+          "context": "(\"dashboard\", \"□ Dashboard\", \"Vue d'ensemble du projet\", \"success\"),"
+        },
+        {
+          "line": 106,
+          "emoji": "◐",
+          "context": "(\"calibration\", \"◐ Calibration\", \"Calibration des sondes\", \"warning\"),"
+        },
+        {
+          "line": 107,
+          "emoji": "▤",
+          "context": "(\"acquisition\", \"▤ Acquisition\", \"Acquisition temps réel\", \"primary\"),"
+        },
+        {
+          "line": 108,
+          "emoji": "△",
+          "context": "(\"stats\", \"△ Statistique\", \"Analyse des données\", \"secondary\"),"
+        },
+        {
+          "line": 109,
+          "emoji": "◈",
+          "context": "(\"advanced\", \"◈ Avancée\", \"Analyse Goda/FFT\", \"warning\"),"
+        },
+        {
+          "line": 110,
+          "emoji": "↗",
+          "context": "(\"export\", \"↗ Export\", \"Export des résultats\", \"success\")"
+        },
+        {
+          "line": 187,
+          "emoji": "📋",
+          "context": "project_title = QLabel(\"📋 Projet Actuel\")"
+        },
+        {
+          "line": 229,
+          "emoji": "🔖",
+          "context": "code_label = QLabel(f\"🔖 {self.current_project.code}\")"
+        },
+        {
+          "line": 235,
+          "emoji": "👨",
+          "context": "engineer_label = QLabel(f\"👨‍💼 {self.current_project.engineer}\")"
+        },
+        {
+          "line": 235,
+          "emoji": "💼",
+          "context": "engineer_label = QLabel(f\"👨‍💼 {self.current_project.engineer}\")"
+        },
+        {
+          "line": 281,
+          "emoji": "💡",
+          "context": "status_title = QLabel(\"💡 État Système\")"
+        },
+        {
+          "line": 313,
+          "emoji": "🔴",
+          "context": "(\"🔴 Capteurs\", \"Non connectés\", \"error\"),"
+        },
+        {
+          "line": 314,
+          "emoji": "🔴",
+          "context": "(\"🔴 Acquisition\", \"Arrêtée\", \"error\"),"
+        },
+        {
+          "line": 315,
+          "emoji": "🔴",
+          "context": "(\"🔴 Calibration\", \"Non effectuée\", \"error\"),"
+        },
+        {
+          "line": 316,
+          "emoji": "🔴",
+          "context": "(\"🔴 Analyse\", \"En attente\", \"error\")"
+        },
+        {
+          "line": 354,
+          "emoji": "←",
+          "context": "return_btn = ModernButton(\"← Retour aux Projets\", \"ghost\", \"md\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 87,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "self.content_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 150,
+          "pattern": "setFixedHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "50"
+          ],
+          "context": "module_widget.setFixedHeight(50)"
+        },
+        {
+          "line": 154,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "module_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 219,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "project_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 259,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "default_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 308,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "status_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 331,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "item_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 439,
+          "pattern": "setFixedWidth\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "280"
+          ],
+          "context": "self.setFixedWidth(280)"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/calibration/calibration_charts.py",
+      "emojis": [
+        {
+          "line": 42,
+          "emoji": "📈",
+          "context": "title = QLabel(\"📈 Graphiques Calibration\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 37,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "v.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 48,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "4"
+          ],
+          "context": "b.setStyleSheet(f\"QPushButton {{ background: {COLORS['primary']}; color: white; border: none; border-radius: 6px; padding: 4px 10px; }}\")"
+        },
+        {
+          "line": 60,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "12"
+          ],
+          "context": "placeholder.setStyleSheet(f\"background: {COLORS['surface']}; border: 1px dashed {COLORS['primary']}; padding: 12px;\")"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/calibration/calibration_wizard.py",
+      "emojis": [
+        {
+          "line": 50,
+          "emoji": "←",
+          "context": "self.prev_btn = QPushButton(\"← Précédent\")"
+        },
+        {
+          "line": 51,
+          "emoji": "→",
+          "context": "self.next_btn = QPushButton(\"Suivant →\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 22,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "root.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 27,
+          "pattern": "setFixedHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "14"
+          ],
+          "context": "self.step_progress.setFixedHeight(14)"
+        },
+        {
+          "line": 53,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "6"
+          ],
+          "context": "b.setStyleSheet(f\"QPushButton {{ background: {COLORS['warning']}; color: white; border: none; border-radius: 6px; padding: 6px 12px; }}\")"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/calibration/probe_management_widget.py",
+      "emojis": [
+        {
+          "line": 27,
+          "emoji": "❌",
+          "context": "item = QTreeWidgetItem([f\"P{i:02d}\", \"pressure\", \"❌\", \"—\"])"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 21,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "root.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 37,
+          "pattern": "padding:\\s*(\\d+)px",
+          "values": [
+            "6"
+          ],
+          "context": "b.setStyleSheet(f\"QPushButton {{ background: {COLORS['warning']}; color: white; border: none; border-radius: 6px; padding: 6px 10px; }}\")"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/modern/modern_acquisition_panel.py",
+      "emojis": [
+        {
+          "line": 232,
+          "emoji": "🌊",
+          "context": "(\"🌊 Niveau\", \"NIV-001\", \"m\", \"success\"),"
+        },
+        {
+          "line": 233,
+          "emoji": "🌊",
+          "context": "(\"🌊 Vitesse\", \"VIT-002\", \"m/s\", \"success\"),"
+        },
+        {
+          "line": 234,
+          "emoji": "🌊",
+          "context": "(\"🌊 Température\", \"TEMP-003\", \"°C\", \"warning\"),"
+        },
+        {
+          "line": 235,
+          "emoji": "🌊",
+          "context": "(\"🌊 Pression\", \"PRESS-004\", \"hPa\", \"error\")"
+        },
+        {
+          "line": 373,
+          "emoji": "📝",
+          "context": "section_title = QLabel(\"📝 Journalisation des Données\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 86,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "self.main_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 87,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "0"
+          ],
+          "context": "self.main_layout.setSpacing(0)"
+        },
+        {
+          "line": 99,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "18"
+          ],
+          "context": "self.content_layout.setContentsMargins(18, 18, 18, 18)"
+        },
+        {
+          "line": 100,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "18"
+          ],
+          "context": "self.content_layout.setSpacing(18)"
+        },
+        {
+          "line": 124,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "controls_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 216,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "monitoring_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 274,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "charts_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 316,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "300"
+          ],
+          "context": "chart_placeholder.setMinimumHeight(300)"
+        },
+        {
+          "line": 329,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "300"
+          ],
+          "context": "rawdata_placeholder.setMinimumHeight(300)"
+        },
+        {
+          "line": 342,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "300"
+          ],
+          "context": "spectral_placeholder.setMinimumHeight(300)"
+        },
+        {
+          "line": 369,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "logging_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 469,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "settings_layout.setContentsMargins(0, 0, 0, 0)"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/modern/modern_calibration_panel.py",
+      "emojis": [
+        {
+          "line": 144,
+          "emoji": "🌊",
+          "context": "(\"🌊 Sonde de Niveau\", \"NIV-001\", \"Connectée\", \"success\"),"
+        },
+        {
+          "line": 145,
+          "emoji": "🌊",
+          "context": "(\"🌊 Sonde de Vitesse\", \"VIT-002\", \"Connectée\", \"success\"),"
+        },
+        {
+          "line": 146,
+          "emoji": "🌊",
+          "context": "(\"🌊 Sonde de Température\", \"TEMP-003\", \"Déconnectée\", \"error\"),"
+        },
+        {
+          "line": 147,
+          "emoji": "🌊",
+          "context": "(\"🌊 Sonde de Pression\", \"PRESS-004\", \"En maintenance\", \"warning\")"
+        },
+        {
+          "line": 556,
+          "emoji": "▤",
+          "context": "icon=\"▤\""
+        },
+        {
+          "line": 574,
+          "emoji": "△",
+          "context": "icon=\"△\""
+        },
+        {
+          "line": 583,
+          "emoji": "◐",
+          "context": "icon=\"◐\""
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 91,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "self.main_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 92,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "0"
+          ],
+          "context": "self.main_layout.setSpacing(0)"
+        },
+        {
+          "line": 104,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "18"
+          ],
+          "context": "self.content_layout.setContentsMargins(18, 18, 18, 18)"
+        },
+        {
+          "line": 105,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "18"
+          ],
+          "context": "self.content_layout.setSpacing(18)"
+        },
+        {
+          "line": 129,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "probe_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 164,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "card_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 217,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "wizard_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 379,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "charts_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 421,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "300"
+          ],
+          "context": "chart_placeholder.setMinimumHeight(300)"
+        },
+        {
+          "line": 434,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "300"
+          ],
+          "context": "history_placeholder.setMinimumHeight(300)"
+        },
+        {
+          "line": 447,
+          "pattern": "setMinimumHeight\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "300"
+          ],
+          "context": "comparison_placeholder.setMinimumHeight(300)"
+        },
+        {
+          "line": 474,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "history_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 538,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "validation_layout.setContentsMargins(0, 0, 0, 0)"
+        }
+      ],
+      "css_issues": []
+    },
+    {
+      "file": "C:/Users/youcef cheriet/Desktop/ProjetChneowave/src/ui/panels/modern/modern_dashboard_panel.py",
+      "emojis": [
+        {
+          "line": 207,
+          "emoji": "●",
+          "context": "value=\"● Non connectés\","
+        },
+        {
+          "line": 216,
+          "emoji": "●",
+          "context": "value=\"● Arrêtée\","
+        },
+        {
+          "line": 225,
+          "emoji": "●",
+          "context": "value=\"● Non effectuée\","
+        },
+        {
+          "line": 234,
+          "emoji": "●",
+          "context": "value=\"● Aucune donnée\","
+        },
+        {
+          "line": 280,
+          "emoji": "◐",
+          "context": "icon=\"◐\""
+        },
+        {
+          "line": 289,
+          "emoji": "▤",
+          "context": "icon=\"▤\""
+        },
+        {
+          "line": 298,
+          "emoji": "◈",
+          "context": "icon=\"◈\""
+        },
+        {
+          "line": 307,
+          "emoji": "↗",
+          "context": "icon=\"↗\""
+        },
+        {
+          "line": 345,
+          "emoji": "◐",
+          "context": "(\"◐\", \"Calibration des sondes\", \"Il y a 1 jour\"),"
+        },
+        {
+          "line": 346,
+          "emoji": "▤",
+          "context": "(\"▤\", \"Acquisition de données\", \"Il y a 2 jours\"),"
+        },
+        {
+          "line": 347,
+          "emoji": "◈",
+          "context": "(\"◈\", \"Analyse FFT terminée\", \"Il y a 3 jours\"),"
+        },
+        {
+          "line": 348,
+          "emoji": "↗",
+          "context": "(\"↗\", \"Export des résultats\", \"Il y a 1 semaine\")"
+        }
+      ],
+      "dimensions": [
+        {
+          "line": 38,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "self.main_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 39,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "0"
+          ],
+          "context": "self.main_layout.setSpacing(0)"
+        },
+        {
+          "line": 51,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "18"
+          ],
+          "context": "self.content_layout.setContentsMargins(18, 18, 18, 18)"
+        },
+        {
+          "line": 52,
+          "pattern": "setSpacing\\(\\s*(\\d+)\\s*\\)",
+          "values": [
+            "18"
+          ],
+          "context": "self.content_layout.setSpacing(18)"
+        },
+        {
+          "line": 76,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "overview_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 191,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "metrics_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 262,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "actions_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 333,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "activity_layout.setContentsMargins(0, 0, 0, 0)"
+        },
+        {
+          "line": 363,
+          "pattern": "setContentsMargins\\(\\s*(\\d+)",
+          "values": [
+            "0"
+          ],
+          "context": "item_layout.setContentsMargins(0, 0, 0, 0)"
+        }
+      ],
+      "css_issues": []
+    }
+  ],
+  "total_emojis_found": 240,
+  "total_dimensions_found": 240,
+  "issues_by_priority": {
+    "critical": [],
+    "high": [],
+    "medium": []
+  }
+}
